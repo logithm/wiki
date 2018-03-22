@@ -75,12 +75,12 @@
 </ol>
 <p>Footnotes<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> have a label<sup id="fnref:@#$%"><a class="footnote-ref" href="#fn:@#$%" rel="footnote">2</a></sup> and the footnote's content.</p>
 <h3 id="_2">环境配置</h3>
-<p>A. 在github中创建wiki项目, 新建.gitignore(内容写上output/), 并创建gh-pages分支, 如下: </p>
+<p>O. 修改root了吗? <code>root: /wiki</code></p>
+<p>A. 在github中创建wiki项目, 新建readme, 并创建gh-pages分支, 步骤如下: </p>
 <ol>
 <li>git clone git@github.com:logithm/wiki.git</li>
 <li>cd wiki</li>
 <li>git checkout -b gh-pages</li>
-<li>将.gitignore文件拷贝到其他地方</li>
 <li>git rm -rf .</li>
 </ol>
 <p>B. 切换到master分支初始化simiki，生成content和themes目录和几个文件。并在output目录生成静态文件. </p>
@@ -95,7 +95,7 @@
 <h3 id="_3">远程部署</h3>
 <p>gh-pages 分支中放wiki成品文件(即output目录中的所有文件), master分支用来备份除了output目录外的所有文件.</p>
 <ol>
-<li>将.gitignore文件拷贝到根目录下(即 <code>wiki/</code>), 添加 <code>output/</code> , 目的是在master分支中将output目录过滤掉. <br />
+<li>根目录下(即 <code>wiki/</code>)新建.gitignore文件, 添加点内容:  <code>output/</code> , 目的是在master分支中将<code>output</code>目录过滤掉. <br />
 而<code>output</code>目录要push到gh-pages分支. </li>
 <li>将以下代码另存为<a href="https://raw.githubusercontent.com/tracholar/wiki/master/deploy.sh">deploy.sh</a>文件, 保存到根目录下.   </li>
 </ol>
@@ -266,7 +266,7 @@
       </div> <!-- end footer-left -->
       <!--
       <div class="footer-right">
-        <p>站点最后生成 2018-03-22 21:22:12</p>
+        <p>站点最后生成 2018-03-22 21:27:46</p>
         <p><a href="https://github.com/tankywoo/wiki.tankywoo.com">Fork me on Github</a></p>
         <p><a href="http://www.miitbeian.gov.cn/">京ICP备16016622号</a></p>
       -->

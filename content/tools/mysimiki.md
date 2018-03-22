@@ -12,7 +12,7 @@ logs: "补充pangu"
 ### 工具准备
 1. 安装python, 安装完成后 pip 也顺带安装了. 也许需要更新 pip.
 1. 安装simiki库及其依赖库: pip install simiki. 
-1. 注册github账户，并且创建 <username>.github.io 代码项xy
+1. 注册github账户，并且创建 <username>.github.io 代码项xyz
 目. 完成之后，你应该可以通过该子域名访问到自己的page页面. 
 
 Footnotes[^1] have a label[^@#$%] and the footnote's content.

@@ -1,0 +1,45 @@
+# Document:
+# http://simiki.org/docs/configuration.html
+
+url: # http://logithm.github.io
+title: 笔记整理
+keywords: 
+description: 
+author: Logithm
+
+
+root: /wiki
+# source: content
+# destination: output
+
+# 存储附件文件(如图片,压缩包等)的目录. 此目录在生成时会拷贝到output目录, 即attach/path/to/file会拷贝到output/attach/path/to/file.
+attach: attach
+themes_dir: themes
+theme: yasimple_x2
+
+#category:
+#  - name: linux  # 目录名
+#    label: Linux/运维  # 目录的别名, 生成首页时可以使用
+#  - name: database
+#    label: 数据库
+
+# deploy:
+#     - type: git
+#       remote: origin
+#       branch: gh-pages
+
+
+##### Parser #####
+markdown:
+  - fenced_code
+  - extra
+  - codehilite(css_class=hlcode, linenums=False)
+  - toc(title=Tables of Contents)
+#  - nl2br # md中的回车导致结果中换行, 不需要.
+
+
+
+
+default_ext: md
+pygments: true
+debug: false

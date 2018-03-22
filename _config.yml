@@ -32,7 +32,6 @@ theme: yasimple_x2
 ##### Parser #####
 markdown:
   - fenced_code
-  - extra
   - codehilite(css_class=hlcode, linenums=False)
   - toc(title=Tables of Contents)
 #  - nl2br # md中的回车导致结果中换行, 不需要.

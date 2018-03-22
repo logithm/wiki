@@ -11,14 +11,9 @@ logs: "补充pangu"
 
 ### 工具准备
 1. 安装python, 安装完成后 pip 也顺带安装了. 也许需要更新 pip.
-1. 安装simiki库及其依赖库: pip install simiki. 
-1. 注册github账户，并且创建 <username>.github.io 代码项me含
-目. 完成之后，你应该可以通过该子域名访问到自己的page页面. 
+1. 安装simiki库及其依赖库: `pip install simiki`. 
+1. 注册github账户，并且创建 <username>.github.io 代码项目. 完成之后，应该可以通过该子域名访问到自己的page页面. 
 
-Footnotes[^1] have a label[^@#$%] and the footnote's content.
-
-[^1]: This is a footnote content.
-[^@#$%]: A footnote on the label: "@#$%".
 
 ### 环境配置
 O. 修改root了吗? `root: /wiki`
@@ -29,7 +24,7 @@ A. 在github中创建wiki项目, 新建readme, 并创建gh-pages分支, 步骤�
 1. cd wiki
 1. git checkout -b gh-pages
 1. git rm -rf .
-
+注: 那不是句号的点.
 
 B. 切换到master分支初始化simiki，生成content和themes目录和几个文件。并在output目录生成静态文件. 
 
@@ -81,6 +76,7 @@ else
 
 fi
 ```
+注: 关于src的三行删掉.
 
 3. 删除output目录先.
 1. 该脚本提供两个功能，初始化和部署. 
@@ -97,25 +93,25 @@ fi
 ## my config
 
 ### general
-1. 当前主题: [yasimple_x2](https://github.com/tankywoo/wiki.tankywoo.com/tree/master/themes). 
-1. 如果使用主题[yasimple_x2](https://github.com/tankywoo/wiki.tankywoo.com/tree/master/themes), [需要修改`_config.yml`中的`root`的选项](https://github.com/tankywoo/simiki/issues/23):  
+*  当前主题: [yasimple_x2](https://github.com/tankywoo/wiki.tankywoo.com/tree/master/themes). 
+*  如果使用主题[yasimple_x2](https://github.com/tankywoo/wiki.tankywoo.com/tree/master/themes), [需要修改`_config.yml`中的`root`的选项](https://github.com/tankywoo/simiki/issues/23):  
 ```
 root: /wiki
 ```
-1. `simiki new | n -t <title> -c <category> [-f <file>]`
+* `simiki new | n -t <title> -c <category> [-f <file>]`
     例子: `simiki n -c "Simiki" -t "linux" -f "xx.md"`
-1. 注释掉了 yasimple_x2 中的license与备案等信息, 在`yasimple_x2/base.html`中修改即可. 
-1. 修改`当前页面最后更新`为`更新`, 在`yasimple_x2/page.html`中. 
-1. [关于多个终端同步的问题](https://github.com/tankywoo/simiki/issues/23): 
+*  注释掉了 yasimple_x2 中的license与备案等信息, 在`yasimple_x2/base.html`中修改即可. 
+*  修改`当前页面最后更新`为`更新`, 在`yasimple_x2/page.html`中. 
+*  [关于多个终端同步的问题](https://github.com/tankywoo/simiki/issues/23): 
 以github pages with domain 为例，master分支保存源文件、gh-pages分支保存生成的output内容。换一台电脑clone:  
 
 ```
-git clone -b master git@github.com:username/projectname.git
-cd projectname/
-git clone -b gh-pages git@github.com:username/projectname.git output
+    1. git clone -b master git@github.com:username/projectname.git
+    2. cd projectname/
+    3. git clone -b gh-pages git@github.com:username/projectname.git output
 ```
 
-1. 关于toc, 在Front Matter之后, 标题之前(标题其实也是文章内容), 添加 `[TOC]`, 一定要大写. 
+*  关于toc, 在Front Matter之后, 标题之前(标题其实也是文章内容), 添加 `[TOC]`, 一定要大写. 
 
 
 ### 关于mathjax
@@ -153,8 +149,7 @@ git clone -b gh-pages git@github.com:username/projectname.git output
 中英文混排时, 习惯在汉字与英文字母及数字之间留一空白, 此空白被成为"[盘古之白](https://github.com/vinta/pangu.js)". 
 写md文件时, 并不需要故意加上这个空白, 跟写tex文件一样. 
 
-[谢益辉](https://yihui.name/cn/2017/05/pangu/)修改了[pangu.js](https://github.com/vinta/pangu.js)的代码, 我将谢的代码
-放到`themes\yasimple_x2\base.html`中了, body之前即可.
+[谢益辉](https://yihui.name/cn/2017/05/pangu/)修改了[pangu.js](https://github.com/vinta/pangu.js)的代码, 我将谢的代码放到 `themes\yasimple_x2\base.html`中了, body之前即可.
 ```
 <script type="text/javascript">
 (function(u, c) {
@@ -172,12 +167,11 @@ git clone -b gh-pages git@github.com:username/projectname.git output
 在单个html文件中, 竟然却没有发现空格, 奇怪. (20180322)
 
 
-### newline 与 hard break
+### newline 与 hard break(未解决)
 python-markdown的[New-Line-to-Break Extension](https://python-markdown.github.io/extensions/nl2br/)(缩写为nl2br)的目的是: 
 > The New-Line-to-Break (nl2b) Extension will cause newlines to be treated as hard breaks.
 
-实际使用: 去掉nl2br选项, 即为false. 而作者的[_config.yml](https://github.com/tankywoo/wiki.tankywoo.com/blob/master/_config.yml)中有如下代码, 
-添加到自己的`_config.yml`中, 再 用Sublime可以增加设置 `"default_line_ending": "unix"`. 
+实际使用: 去掉nl2br选项, 即为false. 而作者的[_config.yml](https://github.com/tankywoo/wiki.tankywoo.com/blob/master/_config.yml)中有如下代码, 添加到自己的`_config.yml`中, 再 用Sublime可以增加设置 `"default_line_ending": "unix"`. 
 ```
 markdown:
   - fenced_code
@@ -185,9 +179,11 @@ markdown:
   - codehilite(css_class=hlcode, linenums=False)
   - toc(title=Table of Contents)
 ```
-
+变通的做法: 编辑器中开启word wrap.
+注: 上面的代码没发现起了什么作用, 那就是说在当前版本(v1.6.2.1)中是默认开启的. (20180322)
 注: 作者[默认nl2br开启](https://github.com/tankywoo/simiki/blob/master/CHANGELOG.rst#v162-2017-06-02).
 注: [python-markdown的extensions](https://python-markdown.github.io/extensions/).
+
 
 
 ### 关于插图

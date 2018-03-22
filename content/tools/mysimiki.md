@@ -21,13 +21,13 @@ Footnotes[^1] have a label[^@#$%] and the footnote's content.
 [^@#$%]: A footnote on the label: "@#$%".
 
 ### 环境配置
+O. 修改root了吗? `root: /wiki`
 
-A. 在github中创建wiki项目, 新建.gitignore(内容写上output/), 并创建gh-pages分支, 如下: 
+A. 在github中创建wiki项目, 新建readme, 并创建gh-pages分支, 步骤如下: 
 
 1. git clone git@github.com:logithm/wiki.git
 1. cd wiki
 1. git checkout -b gh-pages
-1. 将.gitignore文件拷贝到其他地方
 1. git rm -rf .
 
 
@@ -45,7 +45,7 @@ ps: 这前3步其实就是初始化simiki, 然后第4步就是看看生成了什
 
 gh-pages 分支中放wiki成品文件(即output目录中的所有文件), master分支用来备份除了output目录外的所有文件.
 
-1. 将.gitignore文件拷贝到根目录下(即 `wiki/`), 添加 `output/` , 目的是在master分支中将output目录过滤掉. 
+1. 根目录下(即 `wiki/`)新建.gitignore文件, 添加点内容:  `output/` , 目的是在master分支中将`output`目录过滤掉. 
 而`output`目录要push到gh-pages分支. 
 1. 将以下代码另存为[deploy.sh](https://raw.githubusercontent.com/tracholar/wiki/master/deploy.sh)文件, 保存到根目录下.   
 ```

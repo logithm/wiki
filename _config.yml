@@ -34,7 +34,7 @@ markdown:
   - fenced_code
   - codehilite(css_class=hlcode, linenums=False)
   - toc(title=Tables of Contents)
-#  - nl2br # md中的回车导致结果中换行, 不需要.
+  - nl2br # md中的回车导致结果中换行, 不需要.
 
 
 

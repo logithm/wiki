@@ -12,7 +12,7 @@ logs: "补充pangu"
 ### 工具准备
 1. 安装python, 安装完成后 pip 也顺带安装了. 也许需要更新 pip.
 1. 安装simiki库及其依赖库: `pip install simiki`. 
-1. 注册github账户，并且创建 <username>.github.io 代码项目. 完成之后，应该可以通过该子域名访问到自己的page页面. 
+1. 注册github账户，并且创建 username.github.io 代码项目. 完成之后，应该可以通过该子域名访问到自己的page页面. 
 
 
 ### 环境配置
@@ -110,6 +110,7 @@ root: /wiki
     2. cd projectname/
     3. git clone -b gh-pages git@github.com:username/projectname.git output
 ```
+结合前面的deploy.sh更好用. 
 
 *  关于toc, 在Front Matter之后, 标题之前(标题其实也是文章内容), 添加 `[TOC]`, 一定要大写. 
 

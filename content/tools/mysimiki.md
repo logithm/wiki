@@ -7,6 +7,18 @@ logs: "补充pangu"
 
 [TOC]
 
+## 自己的流程
+1. 删除output
+1. git pull origin master
+1. 第3步
+```
+    1. git clone -b master git@github.com:username/projectname.git
+    2. cd projectname/
+    3. git clone -b gh-pages git@github.com:username/projectname.git output
+```
+2. simiki g, simiki p
+2. deploy.sh updatexxx
+
 ## 初始化及部署到github上
 
 ### 工具准备

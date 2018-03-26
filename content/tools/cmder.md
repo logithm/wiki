@@ -93,3 +93,14 @@ pause
 [神器 cmder](https://lfire.github.io/2017/03/02/cmder/)
 
 
+## chocolatey
+
+chocolatey 就是 ubuntu 中的 apt-get, mac下的brew. 
+
+安装: 
+`@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin`
+
+安装软件命令 choco install softwareName，短写是 cinst softwareName.
+
+[package列表](https://chocolatey.org/packages)
+

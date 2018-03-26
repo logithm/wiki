@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <link rel="Stylesheet" type="text/css" href="{{ site.root }}/static/css/colorful.css">
-    <link rel="Stylesheet" type="text/css" href="{{ site.root }}/static/css/style.css">
-    <link rel="shortcut icon" href="{{ site.root }}/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{{ site.root }}/favicon.ico" type="image/x-icon">
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/colorful.css">
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/style.css">
+    <link rel="shortcut icon" href="/wiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/wiki/favicon.ico" type="image/x-icon">
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="keywords" content="{{ site.keywords }}"/>
-    <meta name="description" content="{{ site.description }}"/>
+    <title>pandoc - 笔记整理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    {% block extra_scripts %}{% endblock %}
+    
 
 <script type="text/javascript">
 (function(u, c) 
@@ -33,13 +33,38 @@
 
   <body>
     <div id="container" class="typo">
-      {% block container %}
-      {% endblock %}
+      
+<div id="header">
+  <div id="post-nav">
+    <a href="/wiki/">笔记整理</a>
+    &nbsp;&#187;&nbsp;
+    <a href="/wiki/#tools">tools</a>
+    &nbsp;&#187;&nbsp;pandoc
+    <span class="updated">更新&nbsp;
+    2018-03-19 15:18
+    </span>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div id="content">
+  <p>530u3c 2018-03-19</p>
+<h2 id="first-of-all">first of all</h2>
+<p>pandoc的版本, texlive的版本, win/mac/linux. </p>
+<h2 id="general">general</h2>
+<ol>
+<li>短短的</li>
+</ol>
+<h2 id="md">md作为源</h2>
+<h2 id="tex">tex作为源</h2>
+<h2 id="docx">docx作为源</h2>
+<h2 id="html">html作为源</h2>
+  
+</div>
     </div>
     <div id="footer">
       <div class="footer-left">
         <p>
-        Copyright © 2018-{{ site.time.strftime("%Y") }} {{ site.author }}.
+        Copyright © 2018-2018 Logithm.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
         Theme by <a href="https://github.com/tankywoo/yasimple_x2" target="_blank">YASimple_X2</a>.
         </p>
@@ -49,19 +74,15 @@
       </div> <!-- end footer-left -->
       <!--
       <div class="footer-right">
-<<<<<<< HEAD:themes/yasimple_x2/base.html
-        <p>站点最后生成 {{ site.time.strftime("%Y-%m-%d %H:%M:%S") }}</p>
-=======
         <p>站点最后生成 2018-03-25 22:50:39</p>
->>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html
         <p><a href="https://github.com/tankywoo/wiki.tankywoo.com">Fork me on Github</a></p>
         <p><a href="http://www.miitbeian.gov.cn/">京ICP备16016622号</a></p>
       -->
       </div> <!-- end footer-right -->
     </div>
 
-    {% block script %}
-    {% endblock %}
+    
+    
 
     <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");

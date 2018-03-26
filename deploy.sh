@@ -21,7 +21,8 @@ else
     cd output
     git add . --all
     git commit -am "$1"
-    git push -u origin gh-pages -f
+    git pull origin gh-pages
+    git push origin gh-pages
     cd ..
     
     

@@ -7,17 +7,6 @@ logs: "补充pangu"
 
 [TOC]
 
-## 自己的流程
-1. 删除output
-1. git pull origin master
-1. 第3步
-```
-    1. git clone -b master git@github.com:username/projectname.git
-    2. cd projectname/
-    3. git clone -b gh-pages git@github.com:username/projectname.git output
-```
-2. simiki g, simiki p
-2. deploy.sh updatexxx
 
 ## 初始化及部署到github上
 
@@ -90,7 +79,7 @@ fi
 ```
 注: 关于src的三行删掉.
 
-3. 删除output目录先.
+1. 删除output目录先.
 1. 该脚本提供两个功能，初始化和部署. 
 	* 在cmder或者git bahs中, 输入 `deploy.sh -i`, 目的是初始化整个wiki内容.
 	* `deploy.sh init-version` 提交部署到github上. 
@@ -99,6 +88,17 @@ fi
 
 以上内容严重参考了[tracholar](http://github.com/tracholar)的wiki:[在github pages中使用simiki指南](https://tracholar.github.io/wiki/web/simiki.html).
 
+### 自己的流程
+1. 删除output
+1. git pull origin master
+1. 第3步
+```
+    1. git clone -b master git@github.com:username/projectname.git
+    2. cd projectname/
+    3. git clone -b gh-pages git@github.com:username/projectname.git output
+```
+2. simiki g, simiki p
+2. deploy.sh updatexxx
 
 
 

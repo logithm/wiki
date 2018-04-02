@@ -91,7 +91,7 @@ fi
 ### 自己的流程
 1. 删除output
 1. git pull origin master
-1. 第3步
+1. 下面的第3步
 ```
     1. git clone -b master git@github.com:username/projectname.git
     2. cd projectname/

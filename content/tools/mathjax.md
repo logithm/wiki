@@ -3,7 +3,7 @@ title: "mathjax config"
 date: 2018-03-31 08:55
 ---
 
-## generla
+## general
 
 
 

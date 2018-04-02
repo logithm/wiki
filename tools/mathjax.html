@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/colorful.css">
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/style.css">
+    <link rel="shortcut icon" href="/wiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/wiki/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>mathjax config - 笔记整理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<script type="text/javascript">
+(function(u, c) 
+  {
+      var d = document, t = 'script', o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function(e) { c(e); }); }
+      s.parentNode.insertBefore(o, s);
+  }
+)
+('//cdn.bootcss.com/pangu/3.3.0/pangu.min.js', 
+  function() {
+    pangu.spacingPage();
+  }
+);
+</script>
+
+  </head>
+
+  <body>
+    <div id="container" class="typo">
+      
+<div id="header">
+  <div id="post-nav">
+    <a href="/wiki/">笔记整理</a>
+    &nbsp;&#187;&nbsp;
+    <a href="/wiki/#tools">tools</a>
+    &nbsp;&#187;&nbsp;mathjax config
+    <span class="updated">更新&nbsp;
+    2018-03-31 08:55
+    </span>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div id="content">
+  <h2 id="generla">generla</h2>
+<h2 id="_1">一些例子</h2>
+<h3 id="kuing">kuing</h3>
+<p><a href="http://kuing.is-programmer.com/posts/205614.html">kuing的MathJax配置方法</a></p>
+<div class="hlcode"><pre><span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;text/x-mathjax-config&quot;</span><span class="o">&gt;</span>
+  <span class="n">MathJax</span><span class="p">.</span><span class="n">Hub</span><span class="p">.</span><span class="n">Config</span><span class="p">({</span>
+    <span class="nl">tex2jax:</span> <span class="p">{</span>
+      <span class="nl">inlineMath:</span> <span class="p">[</span> <span class="p">[</span><span class="sc">&#39;$&#39;</span><span class="p">,</span><span class="sc">&#39;$&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">(&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">)&quot;</span><span class="p">]</span> <span class="p">],</span>
+      <span class="nl">processEscapes:</span> <span class="nb">true</span> 
+    <span class="p">},</span>
+    <span class="nl">TeX:</span> <span class="p">{</span>
+      <span class="nl">equationNumbers:</span> <span class="p">{</span> <span class="n">autoNumber</span><span class="o">:</span> <span class="s">&quot;AMS&quot;</span> <span class="p">},</span>
+      <span class="nl">Macros:</span> <span class="p">{</span>
+        <span class="nl">mbb:</span> <span class="err">&#39;\\</span><span class="n">mathbb</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">riff:</span> <span class="err">&#39;\\</span><span class="n">implies</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">liff:</span> <span class="err">&#39;\\</span><span class="n">impliedby</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">abs:</span> <span class="p">[</span><span class="err">&#39;\\</span><span class="n">left</span><span class="err">\\</span><span class="n">lvert</span> <span class="err">#</span><span class="mi">1</span><span class="err">\\</span><span class="n">right</span><span class="err">\\</span><span class="n">rvert</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="nl">rmd:</span> <span class="err">&#39;\\</span><span class="n">mathop</span><span class="p">{}</span><span class="err">\\</span><span class="o">!</span><span class="err">\\</span><span class="n">mathrm</span><span class="p">{</span><span class="n">d</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">vv:</span> <span class="err">&#39;\\</span><span class="n">overrightarrow</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">sslash:</span> <span class="err">&#39;\\</span><span class="n">mathrel</span><span class="p">{</span><span class="o">/</span><span class="err">\\</span><span class="n">mkern</span><span class="o">-</span><span class="mi">5</span><span class="n">mu</span><span class="o">/</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">px:</span> <span class="err">&#39;\\</span><span class="n">mathrel</span><span class="p">{</span><span class="o">/</span><span class="err">\\</span><span class="n">mkern</span><span class="o">-</span><span class="mi">5</span><span class="n">mu</span><span class="o">/</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">pqd:</span> <span class="err">&#39;\\</span><span class="n">stackrel</span><span class="p">{</span><span class="err">\\</span><span class="p">,</span><span class="err">\\</span><span class="n">sslash</span><span class="p">}{</span><span class="err">\\</span><span class="n">raise</span><span class="o">-</span><span class="mf">.5</span><span class="n">ex</span><span class="p">{</span><span class="o">=</span><span class="err">\\</span><span class="o">!</span><span class="err">\\</span><span class="o">!</span><span class="err">\\</span><span class="o">!</span><span class="err">\\</span><span class="o">!=</span><span class="p">}}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">veps:</span> <span class="err">&#39;\\</span><span class="n">varepsilon</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">du:</span> <span class="err">&#39;</span><span class="o">^</span><span class="err">\\</span><span class="n">circ</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">bsb:</span> <span class="err">&#39;\\</span><span class="n">boldsymbol</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">bm:</span> <span class="err">&#39;\\</span><span class="n">boldsymbol</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">kongji:</span> <span class="err">&#39;\\</span><span class="n">varnothing</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">buji:</span> <span class="err">&#39;\\</span><span class="n">complement</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">S:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">S_</span><span class="p">{</span><span class="err">\\</span><span class="n">triangle</span> <span class="err">#</span><span class="mi">1</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="nl">led:</span> <span class="err">&#39;\\</span><span class="n">left</span><span class="err">\\</span><span class="p">{</span><span class="err">\\</span><span class="n">begin</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">endled:</span> <span class="err">&#39;\\</span><span class="n">end</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span><span class="err">\\</span><span class="n">right</span><span class="p">.</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">edr:</span> <span class="err">&#39;\\</span><span class="n">left</span><span class="p">.</span><span class="err">\\</span><span class="n">begin</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">endedr:</span> <span class="err">&#39;\\</span><span class="n">end</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span><span class="err">\\</span><span class="n">right</span><span class="err">\\</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">an:</span> <span class="err">&#39;\\</span><span class="p">{</span><span class="n">a_n</span><span class="err">\\</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">bn:</span> <span class="err">&#39;\\</span><span class="p">{</span><span class="n">b_n</span><span class="err">\\</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">cn:</span> <span class="err">&#39;\\</span><span class="p">{</span><span class="n">c_n</span><span class="err">\\</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">xn:</span> <span class="err">&#39;\\</span><span class="p">{</span><span class="n">x_n</span><span class="err">\\</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">Sn:</span> <span class="err">&#39;\\</span><span class="p">{</span><span class="n">S_n</span><span class="err">\\</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">inR:</span> <span class="err">&#39;\\</span><span class="n">in</span><span class="err">\\</span><span class="n">mbb</span> <span class="n">R</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">inN:</span> <span class="err">&#39;\\</span><span class="n">in</span><span class="err">\\</span><span class="n">mbb</span> <span class="n">N</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">inZ:</span> <span class="err">&#39;\\</span><span class="n">in</span><span class="err">\\</span><span class="n">mbb</span> <span class="n">Z</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">inC:</span> <span class="err">&#39;\\</span><span class="n">in</span><span class="err">\\</span><span class="n">mbb</span> <span class="n">C</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">inQ:</span> <span class="err">&#39;\\</span><span class="n">in</span><span class="err">\\</span><span class="n">mbb</span> <span class="n">Q</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nl">Rtt:</span> <span class="err">&#39;\\</span><span class="n">text</span><span class="p">{</span><span class="n">Rt</span><span class="p">}</span><span class="err">\\</span><span class="n">triangle</span><span class="err">&#39;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">&quot;HTML-CSS&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nl">linebreaks:</span> <span class="p">{</span><span class="n">automatic</span><span class="o">:</span> <span class="nb">true</span><span class="p">}</span>
+    <span class="p">},</span>
+      <span class="nl">menuSettings:</span> <span class="p">{</span>
+        <span class="nl">zoom:</span> <span class="s">&quot;Double-Click&quot;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span>
+  <span class="n">src</span><span class="o">=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+  
+</div>
+    </div>
+    <div id="footer">
+      <div class="footer-left">
+        <p>
+        Copyright © 2018-2018 Logithm.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+        Theme by <a href="https://github.com/tankywoo/yasimple_x2" target="_blank">YASimple_X2</a>.
+        </p>
+        <!--
+        <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。</p>
+        -->
+      </div> <!-- end footer-left -->
+      <!--
+      <div class="footer-right">
+<<<<<<< HEAD:themes/yasimple_x2/base.html
+        <p>站点最后生成 2018-04-02 14:11:59</p>
+=======
+        <p>站点最后生成 2018-03-25 22:50:39</p>
+>>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html
+        <p><a href="https://github.com/tankywoo/wiki.tankywoo.com">Fork me on Github</a></p>
+        <p><a href="http://www.miitbeian.gov.cn/">京ICP备16016622号</a></p>
+      -->
+      </div> <!-- end footer-right -->
+    </div>
+
+    
+    
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F754de327571c0ba7ff50a61fc964e196' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEscapes: true
+      },
+      TeX: {
+        equationNumbers: { autoNumber: "AMS" }
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+  </body>
+</html>

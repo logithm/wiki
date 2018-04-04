@@ -32,6 +32,27 @@ date: 2018-04-02 22:01
 1. 按变量名选择: ctrl+d. 用于修改全文中的全部出现的某个变量.
 
 
+1. sublime中打开cmder
+    * 安装插件terminal
+    * 设置terminal, 在Preferences->Package Settings->Terminal->Settings-User中，输入下面内容
+```
+	{
+    // 输入cmder路径
+    "terminal": "C:\\program files\\cmder\\Cmder.exe",
+    // 通过设置自定义快捷键，使用命令"open_terminal" 或者
+    // "open_terminal_project_folder"打开终端
+    "parameters": ["/START","%CWD%"]
+	}
+```
+
+    * 自定义打开终端快捷键: Preferences->Key Bindings - User，输入下面内容  
+
+```
+  { "keys": ["ctrl+alt+t"],"command": "open_terminal"}
+```
+
+
+
 # todo
 1. 配置各种文件的 ctrl+b
 	* latex

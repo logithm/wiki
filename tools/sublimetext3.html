@@ -89,7 +89,32 @@
 <li>
 <p>按变量名选择: ctrl+d. 用于修改全文中的全部出现的某个变量.</p>
 </li>
+<li>
+<p>sublime中打开cmder</p>
+<ul>
+<li>安装插件terminal</li>
+<li>设置terminal, 在Preferences-&gt;Package Settings-&gt;Terminal-&gt;Settings-User中，输入下面内容</li>
+</ul>
+</li>
 </ol>
+<div class="hlcode"><pre>    <span class="p">{</span>
+    <span class="c1">// 输入cmder路径</span>
+    <span class="s">&quot;terminal&quot;</span><span class="o">:</span> <span class="s">&quot;C:</span><span class="se">\\</span><span class="s">program files</span><span class="se">\\</span><span class="s">cmder</span><span class="se">\\</span><span class="s">Cmder.exe&quot;</span><span class="p">,</span>
+    <span class="c1">// 通过设置自定义快捷键，使用命令&quot;open_terminal&quot; 或者</span>
+    <span class="c1">// &quot;open_terminal_project_folder&quot;打开终端</span>
+    <span class="s">&quot;parameters&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s">&quot;/START&quot;</span><span class="p">,</span><span class="s">&quot;%CWD%&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<div class="hlcode"><pre><span class="o">*</span> <span class="err">自定义打开终端快捷键</span><span class="o">:</span> <span class="n">Preferences</span><span class="o">-&gt;</span><span class="n">Key</span> <span class="n">Bindings</span> <span class="o">-</span> <span class="n">User</span><span class="err">，输入下面内容</span>
+</pre></div>
+
+
+<div class="hlcode"><pre>  <span class="p">{</span> <span class="s">&quot;keys&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s">&quot;ctrl+alt+t&quot;</span><span class="p">],</span><span class="s">&quot;command&quot;</span><span class="o">:</span> <span class="s">&quot;open_terminal&quot;</span><span class="p">}</span>
+</pre></div>
+
+
 <h1 id="todo">todo</h1>
 <ol>
 <li>
@@ -121,7 +146,7 @@
       <!--
       <div class="footer-right">
 <<<<<<< HEAD:themes/yasimple_x2/base.html
-        <p>站点最后生成 2018-04-02 22:57:51</p>
+        <p>站点最后生成 2018-04-04 15:58:13</p>
 =======
         <p>站点最后生成 2018-03-25 22:50:39</p>
 >>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html

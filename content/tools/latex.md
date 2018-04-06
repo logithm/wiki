@@ -1,5 +1,5 @@
 ---
-title: "LaTeX备忘"
+title: "LaTeX"
 date: 2018-03-28 13:56
 ---
 

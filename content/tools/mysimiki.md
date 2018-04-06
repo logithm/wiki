@@ -1,5 +1,5 @@
 ---
-title: "simiki 备忘"
+title: "simiki"
 date: 2018-03-19 09:00
 updated: 2018-03-22 07:55
 logs: "补充pangu"

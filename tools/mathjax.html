@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="/wiki/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/wiki/favicon.ico" type="image/x-icon">
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
-    <title>mathjax config - 笔记整理</title>
+    <title>mathjax - 笔记整理</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,7 +39,7 @@
     <a href="/wiki/">笔记整理</a>
     &nbsp;&#187;&nbsp;
     <a href="/wiki/#tools">tools</a>
-    &nbsp;&#187;&nbsp;mathjax config
+    &nbsp;&#187;&nbsp;mathjax
     <span class="updated">更新&nbsp;
     2018-03-31 08:55
     </span>
@@ -48,6 +48,46 @@
 <div class="clearfix"></div>
 <div id="content">
   <h2 id="general">general</h2>
+<ol>
+<li>
+<p><a href="http://mathjax-chinese-doc.readthedocs.io/en/latest/configuration.html">加载和配置MathJax</a>: 官方中文版mathjax2.0</p>
+</li>
+<li>
+<p><a href="http://www.cnblogs.com/tianshifu/p/6388391.html">去掉蓝框</a>: 添加CSS去掉，如下</p>
+</li>
+</ol>
+<div class="hlcode"><pre><span class="p">.</span><span class="n">MathJax</span><span class="p">{</span><span class="n">outline</span><span class="o">:</span><span class="mi">0</span><span class="p">;}</span>
+</pre></div>
+
+
+<ol>
+<li>在HTML-CSS添加可用字体，如下</li>
+</ol>
+<div class="hlcode"><pre><span class="s">&quot;HTML-CSS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nl">availableFonts:</span> <span class="p">[</span><span class="s">&quot;STIX&quot;</span><span class="p">,</span><span class="s">&quot;TeX&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ol>
+<li>去掉公式右击菜单: 在HTML-CSS添加设置，如下</li>
+</ol>
+<div class="hlcode"><pre><span class="s">&quot;HTML-CSS&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nl">showMathMenu:</span> <span class="nb">false</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ol>
+<li>去掉加载信息: Mathjax.js在加载的时候，我们可以再网页左下角看到加载情况，可以直接在MathJax.Hub.Config()里配置去掉，如下</li>
+</ol>
+<div class="hlcode"><pre><span class="n">MathJax</span><span class="p">.</span><span class="n">Hub</span><span class="p">.</span><span class="n">Config</span><span class="p">({</span>
+    <span class="nl">showProcessingMessages:</span> <span class="nb">false</span><span class="p">,</span>
+    <span class="nl">messageStyle:</span> <span class="s">&quot;none&quot;</span>
+<span class="p">});</span>
+</pre></div>
+
+
 <h2 id="_1">一些例子</h2>
 <h3 id="kuing">kuing</h3>
 <p><a href="http://kuing.is-programmer.com/posts/205614.html">kuing的MathJax配置方法</a></p>
@@ -106,6 +146,31 @@
   <span class="n">src</span><span class="o">=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 </pre></div>
+
+
+<h3 id="class">避开特殊标签和Class</h3>
+<div class="hlcode"><pre><span class="n">MathJax</span><span class="p">.</span><span class="n">Hub</span><span class="p">.</span><span class="n">Config</span><span class="p">({</span>
+    <span class="nl">tex2jax:</span> <span class="p">{</span>
+        <span class="nl">inlineMath:</span>  <span class="p">[</span> <span class="p">[</span><span class="s">&quot;$&quot;</span><span class="p">,</span> <span class="s">&quot;$&quot;</span><span class="p">]</span> <span class="p">],</span>
+        <span class="nl">displayMath:</span> <span class="p">[</span> <span class="p">[</span><span class="s">&quot;$$&quot;</span><span class="p">,</span><span class="s">&quot;$$&quot;</span><span class="p">]</span> <span class="p">],</span>
+        <span class="nl">skipTags:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">script</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">noscript</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">style</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">textarea</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pre</span><span class="sc">&#39;,&#39;</span><span class="n">code</span><span class="sc">&#39;,&#39;</span><span class="n">a</span><span class="err">&#39;</span><span class="p">],</span>
+        <span class="nl">ignoreClass:</span><span class="s">&quot;class1&quot;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="n">MathJax</span><span class="p">.</span><span class="n">Hub</span><span class="p">.</span><span class="n">Queue</span><span class="p">([</span><span class="s">&quot;Typeset&quot;</span><span class="p">,</span><span class="n">MathJax</span><span class="p">.</span><span class="n">Hub</span><span class="p">]);</span>
+</pre></div>
+
+
+<blockquote>
+<p>其中skipTags用来避开一些特殊的标签，这里避开是script,noscript,style,textarea,pre,code,a的标签内<br />
+ignoreClass用来避开标签内声明的CSS Class属性，这里避开的是带有class="class1"的标签内<br />
+如果我们不想让mathjax识别评论里的公式就可以用ignoreClass<br />
+如果有多个Class需要避开，我们可以通过 | 来区分，写成ignoreClass: "class1|class2"基于可以了  </p>
+</blockquote>
+<h2 id="_2">参考</h2>
+<ol>
+<li><a href="https://www.linpx.com/p/front-end-integration-mathjaxjs-configuration.html">前端整合MathjaxJS的配置笔记</a></li>
+</ol>
   
 </div>
     </div>
@@ -123,7 +188,7 @@
       <!--
       <div class="footer-right">
 <<<<<<< HEAD:themes/yasimple_x2/base.html
-        <p>站点最后生成 2018-04-04 15:58:13</p>
+        <p>站点最后生成 2018-04-06 22:59:43</p>
 =======
         <p>站点最后生成 2018-03-25 22:50:39</p>
 >>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html

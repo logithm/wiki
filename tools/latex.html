@@ -55,10 +55,17 @@
 <p>horizontal spacing: leftmargin, rightmargin, listparindent, labelwidth, labelsep, itemindent</p>
 </li>
 <li>
-<p>key<br />
+<p>key
 label, ref, font, format, align=left/right/parleft, setlabelalign</p>
 </li>
+<li>
+<p><a href="https://tex.stackexchange.com/questions/64413/formatting-for-body-of-item-in-itemize-enumerate-description-environment">自定义列表环境, 用于例题</a>: 
+前提是enumitem宏包, 实现列表头与主体(关键是\before)都是楷体. </p>
+</li>
 </ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">newlist</span><span class="p">{</span><span class="n">litilist</span><span class="p">}{</span><span class="n">enumerate</span><span class="p">}{</span><span class="mi">2</span><span class="p">}</span>
+<span class="err">\</span><span class="n">setlist</span><span class="p">[</span><span class="n">litilist</span><span class="p">,</span><span class="mi">1</span><span class="p">]{</span><span class="n">label</span><span class="o">=</span><span class="err">例\</span><span class="n">thelitilisti</span><span class="p">.,</span> <span class="n">before</span><span class="o">=</span><span class="err">\</span><span class="n">kaishu</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="err">\</span><span class="n">kaishu</span> <span class="p">}</span>
+</pre></div>
   
 </div>
     </div>
@@ -76,7 +83,7 @@ label, ref, font, format, align=left/right/parleft, setlabelalign</p>
       <!--
       <div class="footer-right">
 <<<<<<< HEAD:themes/yasimple_x2/base.html
-        <p>站点最后生成 2018-04-06 22:59:43</p>
+        <p>站点最后生成 2018-04-08 14:35:19</p>
 =======
         <p>站点最后生成 2018-03-25 22:50:39</p>
 >>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html

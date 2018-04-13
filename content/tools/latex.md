@@ -18,4 +18,18 @@ label, ref, font, format, align=left/right/parleft, setlabelalign
 \newlist{litilist}{enumerate}{2}
 \setlist[litilist,1]{label=例\thelitilisti., before=\kaishu, font=\kaishu }
 ```
+1. 还是自定义列表
+```
+\newcount{toplist}
+\setcount{toplist}{1}
+\newcommand{\mylistname}{enumerate}
+\setlist[\mylistname,\value{toplist}+1]{labelsep=\itemindent+2em]
+```
+上述例子是enumitem的manual给的, 有几个错误, 修改如下:
+```
+\newcounter{toplist}
+\setcounter{toplist}{1}
+\newlist{mylistname}{enumerate}{2}
+\setlist[mylistname,\value{toplist}]{label=\themylistnamei., resume}
+```
 

@@ -80,7 +80,7 @@
 <li>git clone git@github.com:logithm/wiki.git</li>
 <li>cd wiki</li>
 <li>git checkout -b gh-pages</li>
-<li>git rm -rf .
+<li>git rm -rf .<br />
 注: 那不是句号的点.</li>
 </ol>
 <p>B. 切换到master分支初始化simiki，生成content和themes目录和几个文件。并在output目录生成静态文件. </p>
@@ -90,12 +90,12 @@
 <li>simiki g</li>
 <li>simiki p --host 127.0.0.1 --port 8000 (可省)</li>
 </ol>
-<p>ps: 这前3步其实就是初始化simiki, 然后第4步就是看看生成了什么, simiki p后在<a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>预览. 
+<p>ps: 这前3步其实就是初始化simiki, 然后第4步就是看看生成了什么, simiki p后在<a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>预览. <br />
 默认127.0.0.1:8000. 这个默认值, 作者在<a href="https://github.com/tankywoo/simiki/issues/90">issue90</a>中提到了.</p>
 <h3 id="_3">远程部署</h3>
 <p>gh-pages 分支中放wiki成品文件(即output目录中的所有文件), master分支用来备份除了output目录外的所有文件.</p>
 <ol>
-<li>根目录下(即 <code>wiki/</code>)新建.gitignore文件, 添加点内容:  <code>output/</code> , 目的是在master分支中将<code>output</code>目录过滤掉. 
+<li>根目录下(即 <code>wiki/</code>)新建.gitignore文件, 添加点内容:  <code>output/</code> , 目的是在master分支中将<code>output</code>目录过滤掉. <br />
 而<code>output</code>目录要push到gh-pages分支. </li>
 <li>将以下代码另存为<a href="https://raw.githubusercontent.com/tracholar/wiki/master/deploy.sh">deploy.sh</a>文件, 保存到根目录下.   </li>
 </ol>
@@ -171,11 +171,11 @@
 
 
 <ul>
-<li><code>simiki new | n -t &lt;title&gt; -c &lt;category&gt; [-f &lt;file&gt;]</code>
+<li><code>simiki new | n -t &lt;title&gt; -c &lt;category&gt; [-f &lt;file&gt;]</code><br />
     例子: <code>simiki n -c "Simiki" -t "linux" -f "xx.md"</code></li>
 <li>注释掉了 yasimple_x2 中的license与备案等信息, 在<code>yasimple_x2/base.html</code>中修改即可. </li>
 <li>修改<code>当前页面最后更新</code>为<code>更新</code>, 在<code>yasimple_x2/page.html</code>中. </li>
-<li><a href="https://github.com/tankywoo/simiki/issues/23">关于多个终端同步的问题</a>: 
+<li><a href="https://github.com/tankywoo/simiki/issues/23">关于多个终端同步的问题</a>: <br />
 以github pages with domain 为例，master分支保存源文件、gh-pages分支保存生成的output内容。换一台电脑clone:  </li>
 </ul>
 <div class="hlcode"><pre>    <span class="mf">1.</span> <span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span> <span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">:</span><span class="n">username</span><span class="o">/</span><span class="n">projectname</span><span class="p">.</span><span class="n">git</span>
@@ -217,7 +217,7 @@
 
 
 <h3 id="_5">关于中英文混排空格</h3>
-<p>中英文混排时, 习惯在汉字与英文字母及数字之间留一空白, 此空白被成为"<a href="https://github.com/vinta/pangu.js">盘古之白</a>". 
+<p>中英文混排时, 习惯在汉字与英文字母及数字之间留一空白, 此空白被成为"<a href="https://github.com/vinta/pangu.js">盘古之白</a>". <br />
 写md文件时, 并不需要故意加上这个空白, 跟写tex文件一样. </p>
 <p><a href="https://yihui.name/cn/2017/05/pangu/">谢益辉</a>修改了<a href="https://github.com/vinta/pangu.js">pangu.js</a>的代码, 我将谢的代码放到 <code>themes\yasimple_x2\base.html</code>中了, body之前即可.</p>
 <div class="hlcode"><pre><span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
@@ -249,12 +249,12 @@
 </pre></div>
 
 
-<p>变通的做法: 编辑器中开启word wrap.
-注: 上面的代码没发现起了什么作用, 那就是说在当前版本(v1.6.2.1)中是默认开启的. (20180322)
-注: 作者<a href="https://github.com/tankywoo/simiki/blob/master/CHANGELOG.rst#v162-2017-06-02">默认nl2br开启</a>.
+<p>变通的做法: 编辑器中开启word wrap.<br />
+注: 上面的代码没发现起了什么作用, 那就是说在当前版本(v1.6.2.1)中是默认开启的. (20180322)<br />
+注: 作者<a href="https://github.com/tankywoo/simiki/blob/master/CHANGELOG.rst#v162-2017-06-02">默认nl2br开启</a>.<br />
 注: <a href="https://python-markdown.github.io/extensions/">python-markdown的extensions</a>.</p>
 <h3 id="_6">关于插图</h3>
-<p><del> 在 <code>themes\yasimple_x2\static</code> 下新建 <code>images</code> 目录, 把图片丢进去, 图片引用语法为 <code>![](/images/xxx.png)</code>, 远程是正确的, 本地是错误的. 
+<p><del> 在 <code>themes\yasimple_x2\static</code> 下新建 <code>images</code> 目录, 把图片丢进去, 图片引用语法为 <code>![](/images/xxx.png)</code>, 远程是正确的, 本地是错误的. <br />
 本地预览语法 <code>![](/wiki/images/xxx.png)</code>. </del> (2018-03-20)</p>
 <p>simiki的插图等事宜, 参见<a href="http://simiki.org/zh-docs/configuration.html">simiki的文档</a>中的attach关键词. 插图语法: <code>![](../attach/xxx.png)</code>, 本地远程皆正常. (2018-03-20)</p>
   
@@ -274,7 +274,7 @@
       <!--
       <div class="footer-right">
 <<<<<<< HEAD:themes/yasimple_x2/base.html
-        <p>站点最后生成 2018-04-13 15:09:42</p>
+        <p>站点最后生成 2018-04-14 22:42:29</p>
 =======
         <p>站点最后生成 2018-03-25 22:50:39</p>
 >>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html

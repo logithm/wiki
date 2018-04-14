@@ -86,7 +86,7 @@
 <p>文字重叠问题: 设置界面 &gt; main &gt; main console font &gt; monospce, 去掉勾.</p>
 </li>
 <li>
-<p><a href="https://www.jianshu.com/p/479d974078a7">修改命令提示符号λ</a>
+<p><a href="https://www.jianshu.com/p/479d974078a7">修改命令提示符号λ</a><br />
 修改文件 ${CMDER_HOME}\vendor\clink.lua</p>
 </li>
 </ol>
@@ -110,18 +110,18 @@
 <p>注: 1.3以后版本如此, 之前是之前的改法.</p>
 <ol>
 <li>
-<p>ls中文乱码
+<p>ls中文乱码<br />
 <del> Startup &gt; Environment &gt; Set up environment variables 添加<code>set LANG=zh_CN.UTF8</code>, 重启cmder. </del> </p>
 <ul>
 <li>命令行下, locale查看是否成功.</li>
 <li>注意要在适当的地方加上分号, 否则重启后添加的代码就消失了. 但这不是此法失效的理由, 换成<code>set LC_ALL=zh-CN.UTF8</code>也没用. (2018-03-21)  </li>
 <li>代码未必消失, 大概是没有保存好, 动作太快了. 反正莫名其妙就好了. 奇葩. (2018-03-21)</li>
-<li>在<code>C:\Program Files\cmder\vendor\conemu-maximus5\ConEmu.xml</code>中的<code>&lt;value name="EnvironmentSet" type="multi"&gt;</code>下一行, 
+<li>在<code>C:\Program Files\cmder\vendor\conemu-maximus5\ConEmu.xml</code>中的<code>&lt;value name="EnvironmentSet" type="multi"&gt;</code>下一行, <br />
 直接添加代码<code>&lt;line data="set LANG=zh_CN.UTF-8"/&gt;</code>. 其他修改类似. (2018-03-22)</li>
 </ul>
 </li>
 <li>
-<p><a href="http://imweb.io/topic/56b072d05c49f9d377ed8ee2">设置alias</a>: 修改config/user-aliases.cmd文件. 
+<p><a href="http://imweb.io/topic/56b072d05c49f9d377ed8ee2">设置alias</a>: 修改config/user-aliases.cmd文件. <br />
 比如: <code>st="C:\Program Files\Sublime Text 3\sublime_text.exe"</code>, 意味在cmder中输入st即可打开sublime text.</p>
 </li>
 <li>
@@ -151,11 +151,11 @@
 
 
 <h3 id="_1">参考</h3>
-<p><a href="https://lfire.github.io/2017/03/08/cmder-cygwin-chinese/">cmder &amp; cygwin 中文支持解决方案</a>, 
+<p><a href="https://lfire.github.io/2017/03/08/cmder-cygwin-chinese/">cmder &amp; cygwin 中文支持解决方案</a>, <br />
 <a href="https://lfire.github.io/2017/03/02/cmder/">神器 cmder</a></p>
 <h2 id="chocolatey">chocolatey</h2>
 <p>chocolatey 就是 ubuntu 中的 apt-get, mac下的brew. </p>
-<p>安装: 
+<p>安装: <br />
 <code>@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</code></p>
 <p>安装软件命令 choco install softwareName，短写是 cinst softwareName.</p>
 <p><a href="https://chocolatey.org/packages">package列表</a></p>
@@ -176,7 +176,7 @@
       <!--
       <div class="footer-right">
 <<<<<<< HEAD:themes/yasimple_x2/base.html
-        <p>站点最后生成 2018-04-13 15:09:42</p>
+        <p>站点最后生成 2018-04-14 22:42:29</p>
 =======
         <p>站点最后生成 2018-03-25 22:50:39</p>
 >>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html

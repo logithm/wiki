@@ -180,7 +180,7 @@ root: /wiki
 在单个html文件中, 竟然却没有发现空格, 奇怪. (20180322)
 
 
-### newline 与 hard break(未解决)
+### newline 与 hard break(update20180425)
 python-markdown的[New-Line-to-Break Extension](https://python-markdown.github.io/extensions/nl2br/)(缩写为nl2br)的目的是: 
 > The New-Line-to-Break (nl2b) Extension will cause newlines to be treated as hard breaks.
 
@@ -196,8 +196,19 @@ markdown:
 注: 上面的代码没发现起了什么作用, 那就是说在当前版本(v1.6.2.1)中是默认开启的. (20180322)
 注: 作者[默认nl2br开启](https://github.com/tankywoo/simiki/blob/master/CHANGELOG.rst#v162-2017-06-02).
 注: [python-markdown的extensions](https://python-markdown.github.io/extensions/).
-
-
+------------------
+[update20180425](https://github.com/tankywoo/simiki/issues/105), 作者给出了一个方法: 
+```
+    def _set_markdown_extensions(self):
+        """Set the extensions for markdown parser"""
+        # Default enabled extensions
+        markdown_extensions_config = {
+            "fenced_code": {},
+            "nl2br": {},  # 将这行删掉
+            "toc": {"title": "Table of Contents"},
+            "extra": {},
+        }
+```
 
 ### 关于插图
 

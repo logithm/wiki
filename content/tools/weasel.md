@@ -59,26 +59,30 @@ ps: 以上内容完全来自于官网的文档.
 
 1. [模糊音设置](https://gist.github.com/lotem/2320943)
 
-1. Rime\default.custom.yaml:
+1. 在已经调出输入法时, 按F4(也可以```ctrl+grave```(tab上面的键))切换输入方案(schema):   
+  ![ctrl](../attach/weasel01.png)    
 
+1. 将程序文件夹 (```C:\Program Files (x86)\Rime\weasel-0.11.1\data```) 中的输入方案 (如```luna_pinyin_simp.schema.yaml```: 朙月拼音·简化字) 拷贝到用户文
+  件夹 (```C:\Users\users\AppData\Roaming\Rime```) 中, 把文件名修改为```luna_pinyin_simp.custom.yaml```, 然后对该文件进行修改, 再重新部署即可生效.  
+  
+1. [shift](https://blog.csdn.net/endlch/article/details/44538755): 中文状态下按shift, 将字母上屏.  
+
+1. [中文状态下的半角符号](https://gist.github.com/lotem/2334409): 注意 (1)在 default.custom.yaml 中修改. 
+  (2) [缩进](https://gist.github.com/lotem/2334409#gistcomment-941144)看其中的caiheyao的评论.
+  (3) `alternative.yaml`与`symblos.yaml`有重叠, 前者是后者的子集.
+1. 添加symbols: 就是希腊字符等. 在`luna_pinyin_simp.custom.yaml`中添加如下代码:
 ```
-  patch:
-  "menu/page_size": 9   
-
-```  
-
-1. Rime\build\luna_pinyin.schema.yaml  
-
+patch:
+  "punctuator/import_preset" : symbols
+  "recognizer/patterns/punct": "^/([A-Z|a-z]*|[0-9]|10)$"  
 ```
-speller:
-  algebra:
-    - "erase/^xx$/"
-    - derive/^([zcs])h/$1/             # zh, ch, sh => z, c, s 添加
-    - derive/([ei])n$/$1ng/            # en => eng, in => ing 添加
-```
+1. [三种配置类型](http://www.itdaan.com/blog/2017/08/05/b74a6952fd9b.html): `default.yaml`(全局配置)、`xxxx.schema.yaml`(某某方案配置)、
+  `weasel.yaml`(全局外观配置).  
+    - 首先是把custom文件清空, 然后添加代码.  
+    - 全局配置包括 `schema_list`(可选方案),   `switcher`(方案切换),`menu`(后选词个数等)等等.全局方案配置中的每个可选方案
+      都会有一个 `方案.schema.yaml`配置文件, 该配置文件配置了该方案的`engine`(引擎),`switches`(中英文状态、繁体简体、全角半角等).  
+    - `weasel.yaml`中配置了输入法的外观, 如(`style,preset_color_schemes`), 输入法点字体、字号、横竖排版都在这里配置.  
+    - 用户修改配置时, 最好是在对应点用户配置文件中修改, 即`default.custom.yaml`(全局配置)、`xxxx.custom.yaml`(方案配置)、`weasel.custom.yaml`(外观配置). 
+      用户只需要将相应的配置语句写在对应配置文件的`pacth`下即可. 
 
-1. 的任何修
 
-1. 短短的
-
-1. 短短的

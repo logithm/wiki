@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/colorful.css">
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/style.css">
+    <link rel="shortcut icon" href="/wiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/wiki/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>weasel - 笔记整理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<script type="text/javascript">
+(function(u, c) 
+  {
+      var d = document, t = 'script', o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function(e) { c(e); }); }
+      s.parentNode.insertBefore(o, s);
+  }
+)
+('//cdn.bootcss.com/pangu/3.3.0/pangu.min.js', 
+  function() {
+    pangu.spacingPage();
+  }
+);
+</script>
+
+  </head>
+
+  <body>
+    <div id="container" class="typo">
+      
+<div id="header">
+  <div id="post-nav">
+    <a href="/wiki/">笔记整理</a>
+    &nbsp;&#187;&nbsp;
+    <a href="/wiki/#tools">tools</a>
+    &nbsp;&#187;&nbsp;weasel
+    <span class="updated">更新&nbsp;
+    2018-04-10 08:53
+    </span>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div id="content">
+  <h2 id="general">general</h2>
+<ol>
+<li><a href="http://rime.im/">RIME／中州韵输入法引擎(windows版本称为小狼毫/Weasel)</a></li>
+</ol>
+<h3 id="rime"><a href="https://github.com/rime/home/wiki/RimeWithSchemata">Rime 中的數據文件分佈及作用</a></h3>
+<ol>
+<li>
+<p>共享資料夾</p>
+<ul>
+<li>【中州韻】 /usr/share/rime-data/  </li>
+<li>【小狼毫】 "安裝目錄\data"</li>
+<li>【鼠鬚管】 "/Library/Input Methods/Squirrel.app/Contents/SharedSupport/"</li>
+</ul>
+<p>共享資料夾包含預設輸入方案的源文件。 這些文件屬於 Rime 所發行軟件的一部份，在訪問權限控制較嚴格的系統上對用戶是只讀的，因此謝絕軟件版本更新以外
+的任何修改—— 一旦用戶修改這裏的文件，很可能影響後續的軟件升級或在升級時丟失數據。</p>
+</li>
+<li>
+<p>用戶資料夾</p>
+<ul>
+<li>【中州韻】 ~/.config/ibus/rime/ （0.9.1 以下版本爲 ~/.ibus/rime/）  </li>
+<li>【小狼毫】 "%APPDATA%\Rime"</li>
+<li>【鼠鬚管】 ~/Library/Rime/  </li>
+</ul>
+</li>
+</ol>
+<p>在「部署 Rime」操作時，將用到這裏的輸入方案源文件、並結合用戶定製的內容來編譯預設輸入方案。</p>
+<p>用戶資料夾則包含爲用戶準備的內容，如：</p>
+<ul>
+<li>default.yaml:〔全局設定〕 </li>
+<li>weasel.yaml:〔發行版設定〕 </li>
+<li>&lt;方案標識&gt;.schema.yaml:〔預設輸入方案副本〕 </li>
+<li>installation.yaml: ※〔安裝信息〕 </li>
+<li>user.yaml: ※〔用戶狀態信息〕 </li>
+</ul>
+<p>編譯輸入方案所產出的二進制文件：</p>
+<ul>
+<li>&lt;方案標識&gt;.prism.bin:〔Rime 棱鏡〕 </li>
+<li>&lt;詞典名&gt;.table.bin:〔Rime 固態詞典〕 </li>
+<li>&lt;詞典名&gt;.reverse.bin:〔Rime 反查詞典〕 </li>
+</ul>
+<p>記錄用戶寫作習慣的文件：</p>
+<ul>
+<li>※〔用戶詞典〕 &lt;詞典名&gt;.userdb.kct</li>
+<li>※〔用戶詞典快照〕 &lt;詞典名&gt;.userdb.txt、&lt;詞典名&gt;.userdb.kct.snapshot 見於同步文件夾</li>
+</ul>
+<p>以及用戶自己設定的：</p>
+<ul>
+<li>default.custom.yaml: ※〔用戶對全局設定的定製信息〕 </li>
+<li>&lt;方案標識&gt;.custom.yaml: ※〔用戶對預設輸入方案的定製信息〕 </li>
+<li>※〔用戶自製輸入方案〕及配套的詞典源文件</li>
+</ul>
+<p>註：以上標有 ※ 號的文件，包含用戶資料，您在清理文件時要注意備份！</p>
+<p>ps: 以上内容完全来自于官网的文档. </p>
+<h3 id="_1">备注</h3>
+<ol>
+<li>
+<p>鼠标跟随: 最新版本(weasel-0.11.0.0-installer)已经支持sublime text 3中的鼠标跟随了.</p>
+</li>
+<li>
+<p><a href="https://gist.github.com/lotem/2320943">模糊音设置</a></p>
+</li>
+<li>
+<p>Rime\default.custom.yaml:</p>
+</li>
+</ol>
+<div class="hlcode"><pre>  <span class="nl">patch:</span>
+  <span class="s">&quot;menu/page_size&quot;</span><span class="o">:</span> <span class="mi">9</span>   
+</pre></div>
+
+
+<ol>
+<li>Rime\build\luna_pinyin.schema.yaml  </li>
+</ol>
+<div class="hlcode"><pre><span class="n">speller</span><span class="o">:</span>
+  <span class="n">algebra</span><span class="o">:</span>
+    <span class="o">-</span> <span class="s2">&quot;erase/^xx$/&quot;</span>
+    <span class="o">-</span> <span class="n">derive</span><span class="sr">/^([zcs])h/$1/</span>             <span class="err">#</span> <span class="n">zh</span><span class="o">,</span> <span class="n">ch</span><span class="o">,</span> <span class="n">sh</span> <span class="o">=&gt;</span> <span class="n">z</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">s</span> <span class="err">添加</span>
+    <span class="o">-</span> <span class="n">derive</span><span class="sr">/([ei])n$/$1ng/</span>            <span class="err">#</span> <span class="n">en</span> <span class="o">=&gt;</span> <span class="n">eng</span><span class="o">,</span> <span class="k">in</span> <span class="o">=&gt;</span> <span class="n">ing</span> <span class="err">添加</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p>的任何修</p>
+</li>
+<li>
+<p>短短的</p>
+</li>
+<li>
+<p>短短的</p>
+</li>
+</ol>
+  
+</div>
+    </div>
+    <div id="footer">
+      <div class="footer-left">
+        <p>
+        Copyright © 2018-2018 Logithm.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+        Theme by <a href="https://github.com/tankywoo/yasimple_x2" target="_blank">YASimple_X2</a>.
+        </p>
+        <!--
+        <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。</p>
+        -->
+      </div> <!-- end footer-left -->
+      <!--
+      <div class="footer-right">
+<<<<<<< HEAD:themes/yasimple_x2/base.html
+<<<<<<< HEAD:themes/yasimple_x2/base.html
+        <p>站点最后生成 2018-05-18 13:51:22</p>
+=======
+        <p>站点最后生成 2018-04-14 22:49:42</p>
+>>>>>>> f0dd00ec0b94cb8891acc99359c06cddf7861821:tools/wox.html
+=======
+        <p>站点最后生成 2018-03-25 22:50:39</p>
+>>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html
+        <p><a href="https://github.com/tankywoo/wiki.tankywoo.com">Fork me on Github</a></p>
+        <p><a href="http://www.miitbeian.gov.cn/">京ICP备16016622号</a></p>
+      -->
+      </div> <!-- end footer-right -->
+    </div>
+
+    
+    
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F754de327571c0ba7ff50a61fc964e196' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEscapes: true
+      },
+      TeX: {
+        equationNumbers: { autoNumber: "AMS" }
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+  </body>
+</html>

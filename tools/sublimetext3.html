@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/colorful.css">
+    <link rel="Stylesheet" type="text/css" href="/wiki/static/css/style.css">
+    <link rel="shortcut icon" href="/wiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/wiki/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>sublime text 3 - 笔记整理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<script type="text/javascript">
+(function(u, c) 
+  {
+      var d = document, t = 'script', o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function(e) { c(e); }); }
+      s.parentNode.insertBefore(o, s);
+  }
+)
+('//cdn.bootcss.com/pangu/3.3.0/pangu.min.js', 
+  function() {
+    pangu.spacingPage();
+  }
+);
+</script>
+
+  </head>
+
+  <body>
+    <div id="container" class="typo">
+      
+<div id="header">
+  <div id="post-nav">
+    <a href="/wiki/">笔记整理</a>
+    &nbsp;&#187;&nbsp;
+    <a href="/wiki/#tools">tools</a>
+    &nbsp;&#187;&nbsp;sublime text 3
+    <span class="updated">更新&nbsp;
+    2018-04-02 22:01
+    </span>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div id="content">
+  <h1 id="config">功能,快捷键,config</h1>
+<ol>
+<li>
+<p>rename file: ctrl+shift+p, rename</p>
+</li>
+<li>
+<p>del file: ctrl+shift+p, del</p>
+</li>
+<li>
+<p>一个字体的设置</p>
+</li>
+</ol>
+<div class="hlcode"><pre><span class="p">{</span>
+    <span class="s">&quot;font_options&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s">&quot;no_italic&quot;</span><span class="p">,</span> <span class="s">&quot;directwrite&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>"no_italic" 可以禁止掉斜体样式，"directwrite" 可以使中文也渲染的很好看（只针对Windows 系统）.</p>
+<ol>
+<li>
+<p><a href="https://www.zhihu.com/question/24896283/answer/145620671">关于<code>"word_separators"</code>选项</a>:<br />
+控制默认的分词分割符, 用于自动完成的词条. </p>
+</li>
+<li>
+<p><a href="https://www.zhihu.com/question/46266742/answer/136684944">关于主题的某种设置</a>: </p>
+</li>
+</ol>
+<div class="hlcode"><pre><span class="s">&quot;ui_fix_tab_labels&quot;</span><span class="o">:</span>  <span class="nb">true</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p>theme 与 color theme: theme 改变的是整个project的骨架风格, color theme控制的是编辑区的背景/高亮等.</p>
+</li>
+<li>
+<p>按住鼠标中键（滚轮键）拖动选区可以进行垂直选择, 等价方法: 鼠标右键 + Shift</p>
+</li>
+<li>
+<p>按变量名选择: ctrl+d. 用于修改全文中的全部出现的某个变量.</p>
+</li>
+<li>
+<p>sublime中打开cmder</p>
+<ul>
+<li>安装插件terminal</li>
+<li>设置terminal, 在Preferences-&gt;Package Settings-&gt;Terminal-&gt;Settings-User中，输入下面内容</li>
+</ul>
+</li>
+</ol>
+<div class="hlcode"><pre>    <span class="p">{</span>
+    <span class="c1">// 输入cmder路径</span>
+    <span class="s">&quot;terminal&quot;</span><span class="o">:</span> <span class="s">&quot;C:</span><span class="se">\\</span><span class="s">program files</span><span class="se">\\</span><span class="s">cmder</span><span class="se">\\</span><span class="s">Cmder.exe&quot;</span><span class="p">,</span>
+    <span class="c1">// 通过设置自定义快捷键，使用命令&quot;open_terminal&quot; 或者</span>
+    <span class="c1">// &quot;open_terminal_project_folder&quot;打开终端</span>
+    <span class="s">&quot;parameters&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s">&quot;/START&quot;</span><span class="p">,</span><span class="s">&quot;%CWD%&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<div class="hlcode"><pre><span class="o">*</span> <span class="err">自定义打开终端快捷键</span><span class="o">:</span> <span class="n">Preferences</span><span class="o">-&gt;</span><span class="n">Key</span> <span class="n">Bindings</span> <span class="o">-</span> <span class="n">User</span><span class="err">，输入下面内容</span>
+</pre></div>
+
+
+<div class="hlcode"><pre>  <span class="p">{</span> <span class="s">&quot;keys&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s">&quot;ctrl+alt+t&quot;</span><span class="p">],</span><span class="s">&quot;command&quot;</span><span class="o">:</span> <span class="s">&quot;open_terminal&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<h1 id="todo">todo</h1>
+<ol>
+<li>
+<p>配置各种文件的 ctrl+b</p>
+<ul>
+<li>latex</li>
+<li>md</li>
+<li>pandoc: ...</li>
+</ul>
+</li>
+<li>
+<p><a href="https://packagecontrol.io/docs/syncing">st3的同步: 官方教程</a></p>
+</li>
+</ol>
+  
+</div>
+    </div>
+    <div id="footer">
+      <div class="footer-left">
+        <p>
+        Copyright © 2018-2018 Logithm.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+        Theme by <a href="https://github.com/tankywoo/yasimple_x2" target="_blank">YASimple_X2</a>.
+        </p>
+        <!--
+        <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。</p>
+        -->
+      </div> <!-- end footer-left -->
+      <!--
+      <div class="footer-right">
+<<<<<<< HEAD:themes/yasimple_x2/base.html
+<<<<<<< HEAD:themes/yasimple_x2/base.html
+        <p>站点最后生成 2018-05-18 13:51:22</p>
+=======
+        <p>站点最后生成 2018-04-14 22:49:42</p>
+>>>>>>> f0dd00ec0b94cb8891acc99359c06cddf7861821:tools/wox.html
+=======
+        <p>站点最后生成 2018-03-25 22:50:39</p>
+>>>>>>> 3f17a5e951ddedf246c65d0403430e88257a7ffb:tools/wox.html
+        <p><a href="https://github.com/tankywoo/wiki.tankywoo.com">Fork me on Github</a></p>
+        <p><a href="http://www.miitbeian.gov.cn/">京ICP备16016622号</a></p>
+      -->
+      </div> <!-- end footer-right -->
+    </div>
+
+    
+    
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F754de327571c0ba7ff50a61fc964e196' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEscapes: true
+      },
+      TeX: {
+        equationNumbers: { autoNumber: "AMS" }
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+  </body>
+</html>

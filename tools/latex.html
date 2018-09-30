@@ -84,6 +84,270 @@ label, ref, font, format, align=left/right/parleft, setlabelalign</p>
 <span class="err">\</span><span class="n">newlist</span><span class="p">{</span><span class="n">mylistname</span><span class="p">}{</span><span class="n">enumerate</span><span class="p">}{</span><span class="mi">2</span><span class="p">}</span>
 <span class="err">\</span><span class="n">setlist</span><span class="p">[</span><span class="n">mylistname</span><span class="p">,</span><span class="err">\</span><span class="n">value</span><span class="p">{</span><span class="n">toplist</span><span class="p">}]{</span><span class="n">label</span><span class="o">=</span><span class="err">\</span><span class="n">themylistnamei</span><span class="p">.,</span> <span class="n">resume</span><span class="p">}</span>
 </pre></div>
+
+
+<h2 id="tips">tips</h2>
+<ol>
+<li>数学函数名用正体显示, 斜体表示变量. 
+临时用一下函数名(通常是只用有限的几次), 可以直接写成: \operatorname{rank}(x) 就可以了.</li>
+</ol>
+<h2 id="_1">宏包简要说明</h2>
+<ol>
+<li>epigraph: 章节头名言</li>
+<li>times和txfonts宏包已过时, 很多bug, 尽量用 mathptmx 或 newtxtext, newtxmath 宏包.</li>
+<li>parskip: 段首缩进宏包. \paragraph是\subsection的下一层.</li>
+</ol>
+<h2 id="201612">我的宏包设置(2016.12)</h2>
+<ol>
+<li>列表环境:
+        * 不用enumerate宏包: 该宏包只是给 enumerate 环境增加了一可选项，用来设定列表项的数字的形式。
+        * 用enumitem.
+        * iitem宏包: 实现多级列表. 宏包很小.</li>
+</ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">enumerate</span><span class="p">}</span>
+<span class="err">\</span><span class="n">item</span> <span class="mi">1</span>
+<span class="err">\</span><span class="n">iitem</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="err">\</span><span class="n">item</span> <span class="mi">2</span>
+<span class="err">\</span><span class="n">iitem</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="err">\</span><span class="n">iitem</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="err">\</span><span class="n">iiitem</span> <span class="n">i</span>
+<span class="err">\</span><span class="n">item</span> <span class="mi">3</span>
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">enumerate</span><span class="p">}</span>
+</pre></div>
+
+
+<ol>
+<li>不要indent</li>
+<li>
+<p>例题/定理/定义全部按照section计数</p>
+</li>
+<li>
+<p>如何安装宏</p>
+</li>
+</ol>
+<p>如果得到的宏包是已经编译过的，也就是已经有 .sty 或者 .cls 文件，只需把这些文件放在
+localtexmf\tex\latex\ 下的某个子目录中， 可以自己建一个。然后还要让TEX知道这个新的
+宏包的存在， 需要刷新TEX系统的文件名数据库。现在你可以使用这个宏包了。
+也可以把这些宏包文件和要编辑的TEX源文件放在同一目录下， 这种情况下不需要刷新TEX
+系统的文件名数据库， 但只有同一个目录下的文件可以使用这些宏包。
+如果得到的是宏包的源文件，一般来说都包含两个文件： 一个扩展名为 .ins ，另一个扩展
+名为 .dtx 。 此外，通常会有一个 readme.txt 对宏包进行简要的说明。 现在需要两个步骤将它
+安装到TEX系统中：</p>
+<div class="hlcode"><pre><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="nx">.</span> <span class="nx">生成样式文件并装入系统</span><span class="p">:</span>
+        <span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">对</span> <span class="bp">.</span><span class="nx">ins</span> <span class="nx">运行LaTeX命令</span><span class="err">。</span> <span class="nx">这将会产生一个或若干个</span> <span class="bp">.</span><span class="nx">sty</span> <span class="nx">文件</span>
+        <span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">把</span> <span class="bp">.</span><span class="nx">sty</span> <span class="nx">文件移到系统能找到的地方</span><span class="err">。</span> <span class="nx">通常是</span> <span class="err">…</span><span class="p">/</span><span class="nx">localtexmf</span><span class="p">/</span><span class="nx">tex</span><span class="p">/</span><span class="nx">latex</span> <span class="nx">子目录下</span><span class="p">(</span><span class="nx">Windows</span> <span class="nx">或者</span> <span class="nx">OS</span><span class="p">/</span><span class="nx">2</span> <span class="nx">用户应该改变斜线为反斜线</span><span class="p">)</span>
+        <span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">刷新系统的文件名数据库</span><span class="err">。</span><span class="nx">参照上一节的说明</span>
+
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="nx">.</span> <span class="nx">生成说明文档</span>
+        <span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">对</span> <span class="bp">.</span><span class="nx">dtx</span> <span class="nx">文件运行LaTeX命令</span><span class="err">。</span> <span class="nx">这将会产生一个</span> <span class="bp">.</span><span class="nx">dvi</span> <span class="nx">文件</span><span class="err">。</span> <span class="nx">注意</span><span class="err">：</span><span class="nx">可能需要多次运行LaTeX来正确处理交叉引用</span>
+        <span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">检查一下LaTeX是否产生了</span> <span class="bp">.</span><span class="nx">dvi</span> <span class="nx">文件</span><span class="err">。</span> <span class="nx">如果没有发现这个文件</span><span class="err">，</span><span class="nx">就可以执行第</span> <span class="mi">5</span> <span class="nx">步了</span><span class="err">。</span>
+        <span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">为了生成索引</span><span class="err">，</span><span class="nx">键入命令</span><span class="err">：</span><span class="nx">makeindex</span> <span class="na">-s</span> <span class="nx">gind.ins</span> <span class="nb">name</span> <span class="p">(</span><span class="nx">这里</span> <span class="nb">name</span> <span class="nx">表示不带扩展名的主文件名</span><span class="p">)</span>
+        <span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">再次对</span> <span class="bp">.</span><span class="nx">dtx</span> <span class="nx">文件运行</span> <span class="nx">LA</span> <span class="nb">T</span> <span class="nx">E</span> <span class="nx">X</span> <span class="nx">命令</span><span class="err">。</span>
+        <span class="o">&lt;</span><span class="mi">5</span><span class="o">&gt;</span><span class="nx">.</span> <span class="nx">最后一步不是必需的</span><span class="err">，</span><span class="nx">生成</span> <span class="bp">.</span><span class="nx">ps</span> <span class="nx">文件或者</span> <span class="bp">.</span><span class="nx">pdf</span> <span class="nx">文件以方便阅读</span><span class="err">。</span>
+</pre></div>
+
+
+<p>有时会发现生成了一个 .glo(glossary) 文件。 在第 4 步和第 5 步之间运行下面的命令</p>
+<p>makeindex -s gglo.ist -o name.gls name.glo</p>
+<p>确认在执行第 5 步前最后对 .dtx 文件运行一遍LaTeX 命令。</p>
+<ol>
+<li>建立自己的宏包</li>
+</ol>
+<p>如果建立了很多自己的环境和命令，文档导言部分将变得很长， 在这种情况下，建立一个新的
+LaTeX包来存放所有自定义的命令和环境是一个好的处理方式。可以在文档中使用 \usepackage
+命令来引入中定义宏包中的环境和命令。
+写一个宏包的基本工作就是将文档导言复制到一个分离的文件中去， 这个文件要以 .sty 结
+尾。还需要一个命令：\ProvidesPackage{package_name} </p>
+<p>这个命令应该在包定义源文件的最前面使用。它用于告诉 LaTeX宏包的名称从而允许LaTeX
+在你尝试两次引入同一个宏包的时候给出一个良好的错误信息。</p>
+<h2 id="other-to">other to 整理</h2>
+<ol>
+<li>无序列表环境: 其中的51指的是\ding{51}这个符号</li>
+</ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">dinglist</span><span class="p">}{</span><span class="mi">51</span><span class="p">}</span> 
+<span class="err">\</span><span class="n">item</span> <span class="err">内容</span> 
+<span class="err">\</span><span class="n">item</span> <span class="err">内容</span> 
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">dinglist</span><span class="p">}</span> 
+</pre></div>
+
+
+<ol>
+<li>关于页码的显示: 第3页/共10页(3/10), \pageref{LastPage}</li>
+</ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">fancyfoot</span><span class="p">[</span><span class="n">LE</span><span class="p">,</span><span class="n">RO</span><span class="p">]{</span><span class="err">\</span><span class="n">textbf</span><span class="p">{</span><span class="err">\</span><span class="n">thepage</span><span class="o">/</span><span class="err">\</span><span class="n">pageref</span><span class="p">{</span><span class="n">LastPage</span><span class="p">}}}</span>
+</pre></div>
+
+
+<ol>
+<li>蓝色分割线, 中间写上点内容. 使用: \fengexian{内容}</li>
+</ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">newcommand</span><span class="p">{</span><span class="err">\</span><span class="n">fengexian</span><span class="p">}[</span><span class="mi">1</span><span class="p">]{</span>
+<span class="err">\</span><span class="n">pagebreak</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">center</span><span class="p">}</span>
+<span class="err">\</span><span class="n">textcolor</span><span class="p">{</span><span class="n">blue</span><span class="p">}{</span><span class="err">\</span><span class="n">hrulefill</span><span class="err">\</span><span class="n">hspace</span><span class="p">{</span><span class="mi">3</span><span class="n">em</span><span class="p">}</span><span class="err">\</span><span class="n">textsc</span><span class="p">{</span><span class="err">#</span><span class="mi">1</span><span class="p">}</span><span class="err">\</span><span class="n">hspace</span><span class="p">{</span><span class="mi">3</span><span class="n">em</span><span class="p">}</span><span class="err">\</span><span class="n">hrulefill</span><span class="p">}</span>
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">center</span><span class="p">}}</span>
+</pre></div>
+
+
+<ol>
+<li>两栏: 左代码右输出</li>
+</ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">usepackage</span><span class="p">{</span><span class="n">verbatim</span><span class="p">,</span><span class="n">xcolor</span><span class="p">}</span>
+<span class="err">\</span><span class="n">newbox</span><span class="err">\</span><span class="n">savedlines</span>
+<span class="err">\</span><span class="n">newtoks</span><span class="err">\</span><span class="n">savedtokens</span>
+<span class="err">\</span><span class="n">makeatletter</span>
+<span class="err">\</span><span class="n">def</span><span class="err">\</span><span class="n">codeshow</span><span class="p">{</span><span class="o">%</span>
+<span class="err">\</span><span class="n">global</span><span class="err">\</span><span class="n">savedtokens</span><span class="o">=</span><span class="p">{}</span><span class="o">%</span>
+<span class="err">\</span><span class="n">def</span><span class="err">\</span><span class="n">verbatim</span><span class="err">@</span><span class="n">processline</span><span class="p">{</span><span class="o">%</span>
+<span class="p">{</span><span class="err">\</span><span class="n">setbox0</span><span class="o">=</span><span class="err">\</span><span class="n">hbox</span><span class="p">{</span><span class="err">\</span><span class="n">the</span><span class="err">\</span><span class="n">verbatim</span><span class="err">@</span><span class="n">line</span><span class="p">}</span><span class="o">%</span>
+<span class="err">\</span><span class="n">hsize</span><span class="o">=</span><span class="err">\</span><span class="n">wd0</span>
+<span class="err">\</span><span class="n">the</span><span class="err">\</span><span class="n">verbatim</span><span class="err">@</span><span class="n">line</span><span class="err">\</span><span class="n">par</span><span class="p">}</span><span class="o">%</span>
+<span class="err">\</span><span class="n">global</span><span class="err">\</span><span class="n">savedtokens</span><span class="o">=</span><span class="err">\</span><span class="n">expandafter</span><span class="p">{</span><span class="err">\</span><span class="n">the</span><span class="err">\</span><span class="n">expandafter</span><span class="err">\</span><span class="n">savedtokens</span><span class="err">\</span><span class="n">the</span><span class="err">\</span><span class="n">verbatim</span><span class="err">@</span><span class="n">line</span><span class="o">^^</span><span class="n">J</span><span class="p">}}</span><span class="o">%</span>
+<span class="err">\@</span><span class="n">tempswatrue</span>
+<span class="err">\</span><span class="n">setbox0</span><span class="o">=</span><span class="err">\</span><span class="n">vbox</span><span class="err">\</span><span class="n">bgroup</span><span class="err">\</span><span class="n">parskip</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="err">\</span><span class="n">topsep</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="err">\</span><span class="n">partopsep</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span>
+<span class="err">\</span><span class="n">verbatim</span><span class="p">}</span>
+<span class="err">\</span><span class="n">def</span><span class="err">\</span><span class="n">endcodeshow</span><span class="p">{</span><span class="err">\</span><span class="n">endverbatim</span><span class="o">%</span>
+<span class="err">\</span><span class="n">unskip</span><span class="err">\</span><span class="n">setbox0</span><span class="o">=</span><span class="err">\</span><span class="n">lastbox</span><span class="err">\</span><span class="n">egroup</span>
+<span class="err">\</span><span class="n">global</span><span class="err">\</span><span class="n">setbox</span><span class="err">\</span><span class="n">savedlines</span><span class="o">=</span><span class="err">\</span><span class="n">box0</span>
+<span class="err">\</span><span class="n">addvspace</span><span class="p">{</span><span class="mi">1</span><span class="n">em</span><span class="p">}</span><span class="err">\</span><span class="n">par</span><span class="err">\</span><span class="n">noindent</span><span class="o">%</span>
+<span class="err">\</span><span class="n">colorbox</span><span class="p">{</span><span class="n">lightgray</span><span class="p">}{</span><span class="o">%</span>
+<span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">minipage</span><span class="p">}{</span><span class="mf">.55</span><span class="err">\</span><span class="n">textwidth</span><span class="p">}{</span><span class="err">\</span><span class="n">usebox</span><span class="err">\</span><span class="n">savedlines</span><span class="p">}</span><span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">minipage</span><span class="p">}}</span><span class="o">%</span>
+<span class="err">\</span><span class="n">hfill</span><span class="err">\</span><span class="n">fbox</span><span class="p">{</span><span class="err">\</span><span class="n">parbox</span><span class="p">{</span><span class="mf">.40</span><span class="err">\</span><span class="n">textwidth</span><span class="p">}</span><span class="o">%</span>
+<span class="p">{</span><span class="err">\</span><span class="n">scantokens</span><span class="err">\</span><span class="n">expandafter</span><span class="p">{</span><span class="err">\</span><span class="n">the</span><span class="err">\</span><span class="n">savedtokens</span><span class="err">\</span><span class="n">unskip</span><span class="err">\</span><span class="n">endinput</span><span class="p">}}}</span><span class="o">%</span>
+<span class="err">\</span><span class="n">par</span><span class="err">\</span><span class="n">addvspace</span><span class="p">{</span><span class="mi">1</span><span class="n">em</span><span class="p">}}</span>
+<span class="err">\</span><span class="n">makeatother</span>
+</pre></div>
+
+
+<p>使用方法:</p>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">codeshow</span><span class="p">}</span>
+<span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
+<span class="err">\</span><span class="n">draw</span><span class="p">[</span><span class="n">blue</span><span class="p">](</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="n">circle</span><span class="p">(</span><span class="mi">1</span><span class="n">cm</span><span class="p">);</span>
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">codeshow</span><span class="p">}</span>
+</pre></div>
+
+
+<p>ps: 目前代码部分是灰色(lightgray)的背景, 输出部分是黑色的方框围绕.</p>
+<ol>
+<li>左边显示代码，右边显示编译结果的代码展示环境: 需要listing, tcolorbox宏包</li>
+</ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">lstdefinestyle</span><span class="p">{</span><span class="n">codeshow</span><span class="p">}</span>
+<span class="p">{</span>   <span class="n">basicstyle</span><span class="o">=</span><span class="err">\</span><span class="n">small</span><span class="err">\</span><span class="n">ttfamily</span><span class="p">,</span> <span class="o">%</span> <span class="err">\</span><span class="n">ttfamily</span><span class="err">等宽字体</span>
+    <span class="n">aboveskip</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span><span class="o">%</span> <span class="err">上边距</span>
+    <span class="n">belowskip</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span><span class="o">%</span> <span class="err">下边距</span>
+    <span class="n">lineskip</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span>
+    <span class="n">tabsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="o">%</span> <span class="err">设置</span><span class="n">tab</span><span class="err">空格数</span>
+    <span class="n">showtabs</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span><span class="o">%</span> <span class="n">tab</span>
+    <span class="n">showspaces</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span><span class="o">%</span> <span class="err">空格标识</span>
+    <span class="n">showstringspaces</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span>
+    <span class="n">boxpos</span><span class="o">=</span><span class="n">c</span><span class="p">,</span>
+    <span class="n">xleftmargin</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">%</span> <span class="err">左边距</span>
+    <span class="n">xrightmargin</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span>
+    <span class="n">breaklines</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span><span class="o">%</span> <span class="err">自动换行</span>
+    <span class="n">breakindent</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span><span class="o">%</span> <span class="err">换行后缩进为</span><span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="err">\</span><span class="n">newtcblisting</span><span class="p">{</span><span class="n">mycodeshow</span><span class="p">}{</span>
+   <span class="n">colback</span><span class="o">=</span><span class="n">red</span><span class="o">!</span><span class="mi">5</span><span class="o">!</span><span class="n">white</span><span class="p">,</span>
+<span class="n">colframe</span><span class="o">=</span><span class="n">red</span><span class="o">!</span><span class="mi">75</span><span class="o">!</span><span class="n">black</span><span class="p">,</span>
+    <span class="n">breakable</span><span class="p">,</span>
+    <span class="n">boxrule</span><span class="o">=</span><span class="mf">0.5</span><span class="n">pt</span><span class="p">,</span><span class="o">%</span> <span class="err">去除文本框线</span>
+    <span class="n">arc</span><span class="o">=</span><span class="mi">0</span><span class="n">mm</span><span class="p">,</span><span class="o">%</span> <span class="err">内弧</span>
+    <span class="n">outer</span> <span class="n">arc</span><span class="o">=</span><span class="mi">0</span><span class="n">mm</span><span class="p">,</span><span class="o">%</span> <span class="err">外弧</span>
+    <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span>
+    <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span>
+    <span class="n">top</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span>
+    <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">,</span>
+    <span class="n">listing</span> <span class="n">outside</span> <span class="n">text</span><span class="p">,</span>
+    <span class="n">listing</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span>
+        <span class="n">style</span><span class="o">=</span><span class="n">codeshow</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>使用方法:</p>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">mycodeshow</span><span class="p">}</span>
+<span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
+<span class="err">\</span><span class="n">draw</span><span class="p">[</span><span class="n">blue</span><span class="p">](</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="n">circle</span><span class="p">(</span><span class="mi">1</span><span class="n">cm</span><span class="p">);</span>
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">mycodeshow</span><span class="p">}</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p>与tcolorbox相似功能的宏包mdframe.</p>
+</li>
+<li>
+<p>\documentclass[fleqn]{book}: left-justified equations</p>
+</li>
+<li>
+<p>带圈数字的实现方法 ps: 用calc宏包, +171似乎更好, 如下:</p>
+</li>
+</ol>
+<div class="hlcode"><pre><span class="c">% 带圈数字，不能超过10个</span>
+<span class="o">\</span><span class="n">def</span><span class="o">\</span><span class="p">@</span><span class="n">circlenum</span>#<span class="mi">1</span><span class="p">{</span>
+    <span class="o">\</span><span class="n">ding</span><span class="p">{</span><span class="o">\</span><span class="n">the</span><span class="o">\</span><span class="n">numexpr</span><span class="o">\</span><span class="n">value</span><span class="p">{</span>#<span class="mi">1</span><span class="p">}</span><span class="o">+</span><span class="mi">171</span><span class="o">\</span><span class="n">relax</span><span class="p">}</span><span class="c">%</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ol>
+<li>源代码与 pdf 文件之间的反向搜索问题</li>
+</ol>
+<p>让编辑器都自动实现，需要配置好相关参数，这个参数即:-synctex=1或 synctex=1</p>
+<ol>
+<li>winedt怎么默认以utf8打开编辑文档?</li>
+</ol>
+<p>(1)% !Mode:: “TeX:UTF-8” 每个文档头都需要添加这一行代码
+(2)在options - configuration wizard - wrapping 下 UFT-8 format中加上Tex，改成 Tex;UTF-8|ACP;EDT;INI 就可以了。这样所有的tex文档都被默认是utf-8文档打开。
+但是winedt还没有办法很好支持两种以上的utf-8文档，比如同时输入中文和韩语。
+ps: 目前我的winedt中没有进行(2)中的动作.</p>
+<h2 id="latex">latex宏包更新冲突</h2>
+<ol>
+<li>
+<p>caption2宏包已经obsoleted了,现在是caption宏包.<br />
+参见: <a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=62251">1</a>, <a href="http://ctan.org/pkg/caption">2</a>, <a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=63504">3</a>.<br />
+ps: main46的package.tex中已经修改.</p>
+</li>
+<li>
+<p><a href="http://blog.sina.com.cn/s/blog_5e16f1770100ju9l.html">hyperref宏包是最容易冲突</a></p>
+</li>
+<li>
+<p><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=45405">pdf文档属性中的中文乱码, hyperref宏包此时要求utf8.</a></p>
+</li>
+<li>
+<p>enumitem宏包是什么?
+列表宏包, 有resume选项. 貌似可以把enum宏包给替换了.</p>
+</li>
+<li>
+<p>itemize的各种缩进: <a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=38713">3楼有解释</a>
+一个例子:</p>
+</li>
+</ol>
+<div class="hlcode"><pre><span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">itemize</span><span class="p">}</span><span class="err">\</span><span class="n">setlength</span><span class="p">{</span><span class="err">\</span><span class="n">labelsep</span><span class="p">}{</span><span class="mf">0.5</span><span class="n">em</span><span class="p">}</span>
+<span class="err">\</span><span class="n">item</span> <span class="n">a</span>
+<span class="err">\</span><span class="n">item</span> <span class="n">b</span>
+<span class="err">\</span><span class="n">item</span><span class="p">[</span><span class="err">\</span><span class="n">smiley</span><span class="p">]</span><span class="err">第三个变换相较于前两个</span><span class="p">,</span><span class="err">有点无力</span><span class="p">.</span>
+<span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">itemize</span><span class="p">}</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=56735">hypernat宏包现在不需要了</a>: 因为natbib 和 hyperref 现在配合得很好</p>
+</li>
+<li>
+<p>ddd
+        * biber 代替 bibtex
+        * polyglossia 代替 babel
+        * xindy 代替 makeindex
+        * 画图用 TikZ + Asymptote 分工，代替 MetaPost、PSTricks 和 xfig等等其他所有绘图包。
+以上来自<a href="https://www.zhihu.com/question/21088362/answer/29312831">邓博元</a></p>
+</li>
+</ol>
   
 </div>
     </div>
@@ -102,7 +366,11 @@ label, ref, font, format, align=left/right/parleft, setlabelalign</p>
       <div class="footer-right">
 <<<<<<< HEAD:themes/yasimple_x2/base.html
 <<<<<<< HEAD:themes/yasimple_x2/base.html
+<<<<<<< HEAD:themes/yasimple_x2/base.html
+        <p>站点最后生成 2018-09-30 08:12:58</p>
+=======
         <p>站点最后生成 2018-05-18 13:51:22</p>
+>>>>>>> d5158a2c95daf6452d721caa3edb43d036a5c0b6:tools/wox.html
 =======
         <p>站点最后生成 2018-04-14 22:49:42</p>
 >>>>>>> f0dd00ec0b94cb8891acc99359c06cddf7861821:tools/wox.html

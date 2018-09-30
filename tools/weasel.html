@@ -109,34 +109,39 @@
 <p><a href="https://gist.github.com/lotem/2320943">模糊音设置</a></p>
 </li>
 <li>
-<p>Rime\default.custom.yaml:</p>
+<p>在已经调出输入法时, 按F4(也可以<code>ctrl+grave</code>(tab上面的键))切换输入方案(schema): <br />
+<img alt="ctrl" src="../attach/weasel01.png" />    </p>
 </li>
+<li>
+<p>将程序文件夹 (<code>C:\Program Files (x86)\Rime\weasel-0.11.1\data</code>) 中的输入方案 (如<code>luna_pinyin_simp.schema.yaml</code>: 朙月拼音·简化字) 拷贝到用户文
+  件夹 (<code>C:\Users\users\AppData\Roaming\Rime</code>) 中, 把文件名修改为<code>luna_pinyin_simp.custom.yaml</code>, 然后对该文件进行修改, 再重新部署即可生效.  </p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/endlch/article/details/44538755">shift</a>: 中文状态下按shift, 将字母上屏.  </p>
+</li>
+<li>
+<p><a href="https://gist.github.com/lotem/2334409">中文状态下的半角符号</a>: 注意 (1)在 default.custom.yaml 中修改. 
+  (2) <a href="https://gist.github.com/lotem/2334409#gistcomment-941144">缩进</a>看其中的caiheyao的评论.
+  (3) <code>alternative.yaml</code>与<code>symblos.yaml</code>有重叠, 前者是后者的子集.</p>
+</li>
+<li>添加symbols: 就是希腊字符等. 在<code>luna_pinyin_simp.custom.yaml</code>中添加如下代码:</li>
 </ol>
-<div class="hlcode"><pre>  <span class="nl">patch:</span>
-  <span class="s">&quot;menu/page_size&quot;</span><span class="o">:</span> <span class="mi">9</span>   
+<div class="hlcode"><pre><span class="nl">patch:</span>
+  <span class="s">&quot;punctuator/import_preset&quot;</span> <span class="o">:</span> <span class="n">symbols</span>
+  <span class="s">&quot;recognizer/patterns/punct&quot;</span><span class="o">:</span> <span class="s">&quot;^/([A-Z|a-z]*|[0-9]|10)$&quot;</span>  
 </pre></div>
 
 
 <ol>
-<li>Rime\build\luna_pinyin.schema.yaml  </li>
-</ol>
-<div class="hlcode"><pre><span class="n">speller</span><span class="o">:</span>
-  <span class="n">algebra</span><span class="o">:</span>
-    <span class="o">-</span> <span class="s2">&quot;erase/^xx$/&quot;</span>
-    <span class="o">-</span> <span class="n">derive</span><span class="sr">/^([zcs])h/$1/</span>             <span class="err">#</span> <span class="n">zh</span><span class="o">,</span> <span class="n">ch</span><span class="o">,</span> <span class="n">sh</span> <span class="o">=&gt;</span> <span class="n">z</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">s</span> <span class="err">添加</span>
-    <span class="o">-</span> <span class="n">derive</span><span class="sr">/([ei])n$/$1ng/</span>            <span class="err">#</span> <span class="n">en</span> <span class="o">=&gt;</span> <span class="n">eng</span><span class="o">,</span> <span class="k">in</span> <span class="o">=&gt;</span> <span class="n">ing</span> <span class="err">添加</span>
-</pre></div>
-
-
-<ol>
-<li>
-<p>的任何修</p>
-</li>
-<li>
-<p>短短的</p>
-</li>
-<li>
-<p>短短的</p>
+<li><a href="http://www.itdaan.com/blog/2017/08/05/b74a6952fd9b.html">三种配置类型</a>: <code>default.yaml</code>(全局配置)、<code>xxxx.schema.yaml</code>(某某方案配置)、
+  <code>weasel.yaml</code>(全局外观配置).  <ul>
+<li>首先是把custom文件清空, 然后添加代码.  </li>
+<li>全局配置包括 <code>schema_list</code>(可选方案),   <code>switcher</code>(方案切换),<code>menu</code>(后选词个数等)等等.全局方案配置中的每个可选方案
+  都会有一个 <code>方案.schema.yaml</code>配置文件, 该配置文件配置了该方案的<code>engine</code>(引擎),<code>switches</code>(中英文状态、繁体简体、全角半角等).  </li>
+<li><code>weasel.yaml</code>中配置了输入法的外观, 如(<code>style,preset_color_schemes</code>), 输入法点字体、字号、横竖排版都在这里配置.  </li>
+<li>用户修改配置时, 最好是在对应点用户配置文件中修改, 即<code>default.custom.yaml</code>(全局配置)、<code>xxxx.custom.yaml</code>(方案配置)、<code>weasel.custom.yaml</code>(外观配置). 
+  用户只需要将相应的配置语句写在对应配置文件的<code>pacth</code>下即可. </li>
+</ul>
 </li>
 </ol>
   
@@ -157,7 +162,11 @@
       <div class="footer-right">
 <<<<<<< HEAD:themes/yasimple_x2/base.html
 <<<<<<< HEAD:themes/yasimple_x2/base.html
+<<<<<<< HEAD:themes/yasimple_x2/base.html
+        <p>站点最后生成 2018-09-30 08:12:58</p>
+=======
         <p>站点最后生成 2018-05-18 13:51:22</p>
+>>>>>>> d5158a2c95daf6452d721caa3edb43d036a5c0b6:tools/wox.html
 =======
         <p>站点最后生成 2018-04-14 22:49:42</p>
 >>>>>>> f0dd00ec0b94cb8891acc99359c06cddf7861821:tools/wox.html

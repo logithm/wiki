@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="/wiki/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/wiki/favicon.ico" type="image/x-icon">
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
-    <title>消遣 . log - 笔记整理</title>
+    <title>hexo - 笔记整理</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,25 +38,82 @@
   <div id="post-nav">
     <a href="/wiki/">笔记整理</a>
     &nbsp;&#187;&nbsp;
-    <a href="/wiki/#times">times</a>
-    &nbsp;&#187;&nbsp;消遣 . log
+    <a href="/wiki/#tools">tools</a>
+    &nbsp;&#187;&nbsp;hexo
     <span class="updated">更新&nbsp;
-    2018-03-19 20:40
+    2018-10-24 11:28
     </span>
   </div>
 </div>
 <div class="clearfix"></div>
 <div id="content">
-  <div class="toc"><span class="toctitle">目录</span><ul></ul>
-</div>
+  <h2 id="todo-hexoblog">todo hexoblog</h2>
 <ol>
 <li>
-<p>云村的神评已然成为一种现象, 比如在 <a href="https://music.163.com/song?id=406238&amp;userid=26455443">flower dance</a> 的评论区有如下神评:    </p>
-<blockquote>
-<p>个个都在期待520！其实520的意思就是,5分钟的感情,2个人干的事,最后都是等于0.520是假的,只有502才是真爱,一滴永固,三秒即可,永不分离,即使分离,也得脱皮…</p>
-</blockquote>
+<p><a href="http://www.lancezhange.com/2015/11/24/iframe-for-presentation-embedding/">blog html5 slides</a>
+<a href="http://www.lancezhange.com/2015/11/23/jmpress-js-in-hexo/">嵌入html5,用js</a></p>
 </li>
+<li>
+<p><a href="http://www.lancezhange.com/2015/05/18/Hello-Hexo-and-Goodbay-Octopress/">about mathjax</a></p>
+</li>
+<li>
+<p><a href="https://www.haomwei.com/technology/maupassant-hexo.html">maupassant主题</a></p>
+</li>
+<li>
+<p><a href="http://isnowfy.github.io/">simple</a>: 在github上写博客的更简单的方式.</p>
+</li>
+<li>
+<p><a href="https://getgrav.org/">grav:建blog工具</a>: 不要用, 可能需要自己搭建php服务器. <a href="https://blog.jamespan.me/posts/blogging-in-non-static-way">理由</a></p>
+</li>
+<li>
+<p><a href="http://typecho.org/">typecho: blog平台</a>. 去折腾这些平台其实没有多大必要, 并且有了hexo已经够好的了, 重要的是内容. (20180327)</p>
+</li>
+<li>
+<p><a href="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/">hexo-next</a></p>
+</li>
+<li>
+<p><a href="https://github.com/bubkoo/hexo-toc">hexo-toc</a>可行</p>
+</li>
+<li>
+<p>freemind主题修改post的标题大小在 <code>themes\freemind\source\css\style.ss</code>中</p>
+</li>
+<li>
+<p><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">用github Pages和Jekyll搭建blog</a>,
+<a href="http://www.cnfeat.com/blog/2014/05/11/how-to-build-a-blog/">另一种教程</a>,   </p>
+</li>
+</ol>
+<p><a href="https://www.ezlippi.com/blog/2015/03/github-pages-blog.html">还有</a>  </p>
+<blockquote>
+<p>在该目录下手动创建如下文件和文件夹，最终形成这样的结构：<br />
+    *  _includes：默认的在模板中可以引用的文件的位置，后面会提到<br />
+    *  _layouts：默认的公共页面的位置，后面会提到<br />
+    *  _posts：博客文章默认的存放位置<br />
+    *  .gitignore：git将忽略这个文件中列出的匹配的文件或文件夹，不将这些纳入源码管理<br />
+    *  _config.yml：关于jekyll模板引擎的配置文件<br />
+    *  index.html：默认的主页  </p>
+</blockquote>
+<ol>
 <li></li>
+</ol>
+<h2 id="done">Done</h2>
+<ol>
+<li><a href="https://qiwulun.github.io/posts/用Hexo和Org写博客──站内链接.html">博客内部链接: pages之间的互相链接</a>.   <ul>
+<li>首先, <code>_config.yml</code>中, 将 
+<code>permalink: :year/:month/:day/:title/</code><br />
+修改为 
+<code>permalink: _post/:title.html</code>.     </li>
+<li>其次, 比如要在<code>about</code>页面上链接<code>maxim</code>页面, 只要 <code>[maxim](../maxim)</code>即可. 注意是两个<code>..</code>, 也不需要加<code>.html</code>后缀. 
+另外, <code>[隔三差五](../categories/隔三差五/)</code>也是正确的.  </li>
+<li>再次, 博客内部某博文链接到另一博文: <code>{% post_link blog.md %}</code>, 其中<code>blog.md</code>就是那个目标博文的md文件.</li>
+</ul>
+</li>
+<li>插图问题, 解决为 <code>![](../../../../images/001.png)</code> . 2018-02-16</li>
+<li>
+<p>换行问题参见: {% post_link hexo %}</p>
+</li>
+<li>
+<p>今天比较兴奋的是通过wixo/freemind这两个主题, 发现几个好玩的博客. 2018-02-27</p>
+</li>
 </ol>
   
 </div>

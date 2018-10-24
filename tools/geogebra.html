@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="/wiki/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/wiki/favicon.ico" type="image/x-icon">
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
-    <title>消遣 . log - 笔记整理</title>
+    <title>Geogebra使用备注 - 笔记整理</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,25 +38,37 @@
   <div id="post-nav">
     <a href="/wiki/">笔记整理</a>
     &nbsp;&#187;&nbsp;
-    <a href="/wiki/#times">times</a>
-    &nbsp;&#187;&nbsp;消遣 . log
+    <a href="/wiki/#tools">tools</a>
+    &nbsp;&#187;&nbsp;Geogebra使用备注
     <span class="updated">更新&nbsp;
-    2018-03-19 20:40
+    2018-10-24 10:06
     </span>
   </div>
 </div>
 <div class="clearfix"></div>
 <div id="content">
-  <div class="toc"><span class="toctitle">目录</span><ul></ul>
+  <div class="toc"><span class="toctitle">目录</span><ul>
+<li><a href="#_1">截图/导出</a></li>
+<li><a href="#_2">画坐标系(箭头)</a></li>
+<li><a href="#_3">杂项</a></li>
+</ul>
 </div>
+<h2 id="_1">截图/导出</h2>
 <ol>
-<li>
-<p>云村的神评已然成为一种现象, 比如在 <a href="https://music.163.com/song?id=406238&amp;userid=26455443">flower dance</a> 的评论区有如下神评:    </p>
-<blockquote>
-<p>个个都在期待520！其实520的意思就是,5分钟的感情,2个人干的事,最后都是等于0.520是假的,只有502才是真爱,一滴永固,三秒即可,永不分离,即使分离,也得脱皮…</p>
-</blockquote>
+<li>手工画图, 然后导出pgf/tikz, 再放到<code>standalone.tex</code>中生成pdf插入到<code>.tex</code>中去:  <ol>
+<li>把坐标系放大, 正常情况下$4\times 4$正好; </li>
+<li>图画好后, 将图放在第一象限, 最好贴着坐标轴, 理由在下一步;</li>
+<li>在导出pgf/tizk代码时, 在对话框中填入$x_{\min},y_{\min}, x_{\max},y_{\max}$, 生成pgf/tikz代码; </li>
+<li>documentclass选择为standalone, 拷贝代码, xelatex生成pdf.
+<img alt="" src="../attach/geogebra001.png" />  </li>
+</ol>
 </li>
-<li></li>
+</ol>
+<h2 id="_2">画坐标系(箭头)</h2>
+<p>有时候, 我们不需要那么大的坐标系, 而是恰好大小的坐标系, 比如在$4\times 4$中, 不顶格的坐标轴的箭头</p>
+<h2 id="_3">杂项</h2>
+<ol>
+<li>高级选项中的任何修改, 都要返回上级菜单, 选择"保存设置". </li>
 </ol>
   
 </div>

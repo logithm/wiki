@@ -160,6 +160,40 @@ LaTeX包来存放所有自定义的命令和环境是一个好的处理方式。
 尾。还需要一个命令：\ProvidesPackage{package_name} </p>
 <p>这个命令应该在包定义源文件的最前面使用。它用于告诉 LaTeX宏包的名称从而允许LaTeX
 在你尝试两次引入同一个宏包的时候给出一个良好的错误信息。</p>
+<h2 id="_2">一些宏包</h2>
+<ol>
+<li>
+<p><a href="https://github.com/Stone-Zeng/zhlipsum">zhlipsum 随机填充汉字</a></p>
+</li>
+<li>
+<p><a href="1-1.tex">wrapfig宏包可以实现左右排版</a>: 但是不能与列表环境互相嵌入.</p>
+</li>
+</ol>
+<div class="hlcode"><pre><span class="k">\begin</span><span class="nb">{</span>wrapfigure<span class="nb">}</span>[12]<span class="nb">{</span>r<span class="nb">}</span>[34pt]<span class="nb">{</span>5cm<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+....
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>wrapfigure<span class="nb">}</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p><a href="http://www.latexstudio.net/hulatex/package/float.htm">floatrow宏包</a>, 使用实例参见<a href="https://github.com/jermer/alg-book">ab_preamble.tex</a>  </p>
+</li>
+<li>
+<p><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=68537">setspace宏包少用</a>  </p>
+</li>
+<li>
+<p><a href="http://www.cnblogs.com/Eufisky/p/3801317.html">epigraph宏包用来写章节头上的一句名人名言</a></p>
+</li>
+<li>
+<p>做个glossary(名词/术语索引)还是很有作用的. 使用实例参见<a href="https://github.com/jermer/alg-book">ab_preamble.tex</a>.  </p>
+</li>
+<li>
+<p><a href="https://github.com/jermer/alg-book">ab_preamble.tex</a>中的插图(一行多图)可以参考.  </p>
+</li>
+</ol>
 <h2 id="other-to">other to 整理</h2>
 <ol>
 <li>无序列表环境: 其中的51指的是\ding{51}这个符号</li>
@@ -172,7 +206,18 @@ LaTeX包来存放所有自定义的命令和环境是一个好的处理方式。
 
 
 <ol>
-<li>关于页码的显示: 第3页/共10页(3/10), \pageref{LastPage}</li>
+<li>
+<p><a href="http://www.latexstudio.net/archives/10645">跨页表格/代码框</a> 还不错的book类</p>
+</li>
+<li>
+<p><a href="http://www.latexstudio.net/archives/10627">开源微积分巨著《APEX Calculus》</a> <a href="https://github.com/APEXCalculus/APEXCalculus_Source">latex排版</a></p>
+</li>
+<li>
+<p><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=65541">反复引用同一个脚注</a></p>
+</li>
+<li>
+<p>关于页码的显示: 第3页/共10页(3/10), \pageref{LastPage}</p>
+</li>
 </ol>
 <div class="hlcode"><pre><span class="err">\</span><span class="n">fancyfoot</span><span class="p">[</span><span class="n">LE</span><span class="p">,</span><span class="n">RO</span><span class="p">]{</span><span class="err">\</span><span class="n">textbf</span><span class="p">{</span><span class="err">\</span><span class="n">thepage</span><span class="o">/</span><span class="err">\</span><span class="n">pageref</span><span class="p">{</span><span class="n">LastPage</span><span class="p">}}}</span>
 </pre></div>
@@ -368,7 +413,7 @@ ps: main46的package.tex中已经修改.</p>
 <<<<<<< HEAD:themes/yasimple_x2/base.html
 <<<<<<< HEAD:themes/yasimple_x2/base.html
 <<<<<<< HEAD:themes/yasimple_x2/base.html
-        <p>站点最后生成 2018-10-22 17:31:47</p>
+        <p>站点最后生成 2018-10-24 14:31:39</p>
 =======
         <p>站点最后生成 2018-10-22 11:00:25</p>
 >>>>>>> 1dd4c38d8dddda1b9cb36c6ef6dcf1dacd1e7f55:tools/wox.html

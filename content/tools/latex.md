@@ -115,8 +115,28 @@ LaTeX包来存放所有自定义的命令和环境是一个好的处理方式。
 
 
 
+## 一些宏包
+10. [zhlipsum 随机填充汉字](https://github.com/Stone-Zeng/zhlipsum)
+
+9. [wrapfig宏包可以实现左右排版](1-1.tex): 但是不能与列表环境互相嵌入.
+``` latex
+\begin{wrapfigure}[12]{r}[34pt]{5cm}
+\begin{tikzpicture}
+....
+\end{tikzpicture}
+\end{wrapfigure}
+``` 
 
 
+1. [floatrow宏包](http://www.latexstudio.net/hulatex/package/float.htm), 使用实例参见[ab_preamble.tex](https://github.com/jermer/alg-book)  
+
+1. [setspace宏包少用](http://bbs.ctex.org/forum.php?mod=viewthread&tid=68537)  
+
+1. [epigraph宏包用来写章节头上的一句名人名言](http://www.cnblogs.com/Eufisky/p/3801317.html)
+
+1.  做个glossary(名词/术语索引)还是很有作用的. 使用实例参见[ab_preamble.tex](https://github.com/jermer/alg-book).  
+
+1. [ab_preamble.tex](https://github.com/jermer/alg-book)中的插图(一行多图)可以参考.  
 
 
 
@@ -132,6 +152,13 @@ LaTeX包来存放所有自定义的命令和环境是一个好的处理方式。
 \item 内容 
 \end{dinglist} 
 ```
+
+
+12. [跨页表格/代码框](http://www.latexstudio.net/archives/10645) 还不错的book类
+
+13. [开源微积分巨著《APEX Calculus》](http://www.latexstudio.net/archives/10627) [latex排版](https://github.com/APEXCalculus/APEXCalculus_Source)
+
+3. [反复引用同一个脚注](http://bbs.ctex.org/forum.php?mod=viewthread&tid=65541)
 
 1. 关于页码的显示: 第3页/共10页(3/10), \pageref{LastPage}
 

@@ -101,6 +101,28 @@ fi
 2. deploy.sh updatexxx
 
 
+## todo wiki
+
+1. [基于nodejs的wiki---jingo](https://github.com/claudioc/jingo)
+
+1. [TiddlyWiki5](https://github.com/Jermolene/TiddlyWiki5)
+
+1. [nodewiki](https://github.com/nhoss2/nodewiki)
+
+1. [http://prose.io](http://prose.io)
+
+
+### simiki 参考
+
+https://tracholar.github.io/wiki/web/simiki.html
+
+https://tracholar.github.io/wiki/
+
+https://sthsf.github.io/wiki/
+
+https://wiki.tankywoo.com/
+
+
 
 ## my config
 
@@ -110,8 +132,8 @@ fi
 ```
 root: /wiki
 ```
-* `simiki new | n -t <title> -c <category> [-f <file>]`
-    例子: `simiki n -c "Simiki" -t "linux" -f "xx.md"`
+* `simiki new | n -c <category> -t <title> [-f <file>]`  
+    例子: `simiki n -c "tools" -t "simiki配置" -f "mysimiki.md"`
 *  注释掉了 yasimple_x2 中的license与备案等信息, 在`yasimple_x2/base.html`中修改即可. 
 *  修改`当前页面最后更新`为`更新`, 在`yasimple_x2/page.html`中. 
 *  [关于多个终端同步的问题](https://github.com/tankywoo/simiki/issues/23): 
@@ -215,4 +237,7 @@ markdown:
 <del> 在 `themes\yasimple_x2\static` 下新建 `images` 目录, 把图片丢进去, 图片引用语法为 `![](/images/xxx.png)`, 远程是正确的, 本地是错误的. 
 本地预览语法 `![](/wiki/images/xxx.png)`. </del> (2018-03-20)
 
-simiki的插图等事宜, 参见[simiki的文档](http://simiki.org/zh-docs/configuration.html)中的attach关键词. 插图语法: `![](../attach/xxx.png)`, 本地远程皆正常. (2018-03-20)
+simiki的插图等事宜, 参见[simiki的文档](http://simiki.org/zh-docs/configuration.html)中的attach关键词. 插图语
+法: `![](../attach/xxx.png)`, 本地远程皆正常. (2018-03-20)  
+
+
